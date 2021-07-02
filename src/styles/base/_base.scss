@@ -1,0 +1,16 @@
+html {
+  font-size: 62.5%;
+}
+*,
+*::before,
+*::after {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: inherit;
+}
+
+body {
+  font-size: 1.6rem;
+  box-sizing: border-box;
+  background-color: black;
+}
