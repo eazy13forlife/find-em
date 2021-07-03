@@ -1,0 +1,10 @@
+@mixin respondMax($screenSize) {
+  @media (max-width: $screenSize/16px *1em) {
+    @content;
+  }
+}
+@mixin respondMin($screenSize) {
+  @media (min-width: $screenSize/16px *1em) {
+    @content;
+  }
+}
