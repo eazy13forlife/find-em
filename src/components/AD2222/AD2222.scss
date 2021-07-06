@@ -1,0 +1,60 @@
+.AD2222 {
+  position: relative;
+  &__gameboard {
+  }
+  &__image {
+    width: 100%;
+    display: block;
+    position: absolute;
+  }
+}
+
+.lois {
+  height: 3vw;
+  border: 5px solid red;
+  width: 4vw;
+  position: absolute;
+  margin-top: 89.3%;
+  left: 32%;
+}
+
+.patrick {
+  height: 4.5vw;
+  width: 4.3vw;
+  border: 5px solid red;
+  position: absolute;
+  left: 64.3%;
+  margin-top: 90.1%;
+}
+.petergriffin {
+  border: 5px solid red;
+  position: absolute;
+  left: 73%;
+  width: 4.3vw;
+  height: 5vw;
+  margin-top: 165.2%;
+}
+.consuela {
+  border: 5px solid red;
+  position: absolute;
+  left: 34.5%;
+  width: 4.3vw;
+  height: 5vw;
+  margin-top: 52.5%;
+}
+.stewie {
+  border: 5px solid red;
+  position: absolute;
+  left: 93%;
+  width: 3vw;
+  height: 3vw;
+  margin-top: 88.5%;
+}
+.tom {
+  border: 5px solid red;
+  position: absolute;
+  left: 84.3%;
+  width: 4.3vw;
+  height: 5vw;
+  margin-top: 163.2%;
+}

@@ -1,0 +1,36 @@
+.Dropdown {
+  width: 15%;
+  position: absolute;
+  z-index: 1000;
+
+  &__item {
+    display: grid;
+    grid-template-columns: 25% 1fr;
+    align-items: center;
+    grid-column-gap: 1rem;
+    border: 2px solid black;
+    border-radius: 1.3rem;
+    cursor: pointer;
+    &--ad2222 {
+      background-color: var(--blue-primary);
+      border-color: var(--yellow);
+      color: white;
+      &:hover {
+        filter: contrast(0.8);
+      }
+    }
+    &--paranormal {
+      background-color: var(--white);
+      border-color: var(--secondary-blue);
+    }
+  }
+  &__image-container {
+    margin-left: 0.8rem;
+  }
+  &__image {
+    width: 75%;
+  }
+  .text {
+    padding-right: 1rem;
+  }
+}

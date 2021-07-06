@@ -1,0 +1,11 @@
+.TargetBox {
+  position: absolute;
+  outline: 5px solid black;
+  outline-offset: 3rem;
+  &--ad2222 {
+    outline-color: var(--yellow);
+  }
+  &--paranormal {
+    outline-color: var(--white);
+  }
+}

@@ -1,19 +1,10 @@
 @import "../../styles/abstracts/_mixins.scss";
 
+/*
 .background {
-  background-color: black;
   position: relative;
 }
 
-.box {
-  height: 5rem;
-  width: 5rem;
-  background-color: red;
-}
-img {
-  width: 100%;
-  position: absolute;
-}
 .famguy {
   height: 3vw;
 
@@ -111,13 +102,19 @@ img {
   height: 18vw;
   margin-top: 119.5%;
 }
-/*
-.bottle {
-  height: 20vw;
-  width: 10vw;
+.random {
+  border: 5px solid green;
   position: absolute;
-  margin-top: 35%;
-  left: 18%;
-  border: 1px solid red;
+
+  width: 18vw;
+  height: 18vw;
+  left: 0;
+  margin-top: 40%;
+  z-index: 5;
+}
+
+
+.louise {
+  width: 10%;
 }
 */

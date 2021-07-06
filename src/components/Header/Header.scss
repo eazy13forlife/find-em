@@ -1,0 +1,50 @@
+.Header {
+  display: grid;
+  padding: 3rem 2rem 0rem 5rem;
+  grid-template-columns: repeat(12, [col-start]1fr[col-end]);
+  grid-template-rows: 15rem;
+  overflow: hidden;
+  &--ad2222 {
+    background-color: var(--yellow);
+  }
+  &--paranormal {
+    background-color: var(--white);
+  }
+  &__logo {
+    grid-column: col-start 1 / col-end 3;
+  }
+  &__character-images {
+    grid-column: col-start 6 / col-end 12;
+    display: flex;
+  }
+  &__image-container {
+    width: 160px;
+    position: relative;
+    &:not(:first-child) {
+      margin-left: -4rem;
+    }
+  }
+  &__image {
+    width: 100%;
+    transform: translateY(0.2rem);
+    display: block;
+    &--hidden {
+      filter: contrast(0.5) brightness(0.5);
+    }
+  }
+  &__image-name {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 50;
+    transform: translate(-50%, -50%);
+    visibility: hidden;
+    opacity: 0;
+    transition: all 300ms;
+  }
+}
+
+.Header__image-container:hover .Header__image-name {
+  visibility: visible;
+  opacity: 1;
+}
