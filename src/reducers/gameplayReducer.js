@@ -6,7 +6,7 @@ const gameplay = {
       It: {
         identified: false,
       },
-      "Freddy Kreuger": {
+      "Freddy Krueger": {
         identified: false,
       },
       "Hannibal Lecter": {

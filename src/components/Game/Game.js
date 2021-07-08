@@ -3,7 +3,7 @@ import React from "react";
 import Header from "../Header/Header.js";
 import Dropdown from "../Dropdown/Dropdown.js";
 import TargetBox from "../TargetBox/TargetBox.js";
-import "./Paranormal.scss";
+import "./Game.scss";
 
 const Game = ({
   charactersList,

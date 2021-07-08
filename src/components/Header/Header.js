@@ -8,11 +8,11 @@ const Header = ({ charactersList, theme }) => {
   const dispatch = useDispatch();
   // get all my characters for the gameboard we are currently on
   const allCharacters = useSelector((state) => {
-    return state.gameplay[state.gameboardSelected].characters;
+    return state.gameplay[theme].characters;
   });
 
   //get images for each character in my charactersList
-  const images = Object.values(charactersList).map((character, index) => {
+  const images = charactersList.map((character, index) => {
     const name = character.name.split(" ")[0];
     const identified = allCharacters[character.name].identified === true;
 
