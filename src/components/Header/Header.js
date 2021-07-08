@@ -14,7 +14,7 @@ const Header = ({ charactersList, theme }) => {
   //get images for each character in my charactersList
   const images = Object.values(charactersList).map((character, index) => {
     const name = character.name.split(" ")[0];
-    const identified = allCharacters[character.name].identified;
+    const identified = allCharacters[character.name].identified === true;
 
     return (
       <figure className="Header__image-container" key={index}>
@@ -22,7 +22,7 @@ const Header = ({ charactersList, theme }) => {
           src={character.image}
           alt={character.name}
           className={`Header__image ${
-            identified ? null : "Header__image--hidden"
+            identified ? "Header__image" : "Header__image--hidden"
           }`}
         />
         <figcaption className="Header__image-name text--medium text--white">

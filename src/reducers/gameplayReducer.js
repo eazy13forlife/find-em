@@ -57,7 +57,7 @@ const gameplayReducer = (state = gameplay, action) => {
     const updatedGameplay = { ...state };
     updatedGameplay[action.payload.gameboard].characters[
       action.payload.name
-    ] = true;
+    ].identified = true;
     updatedGameplay[action.payload.gameboard].numberIdentified += 1;
     updatedGameplay[action.payload.gameboard].identified.push(
       action.payload.name
