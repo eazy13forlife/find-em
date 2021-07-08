@@ -1,4 +1,4 @@
-.AD2222 {
+.Game {
   position: relative;
 
   &__gameboard {
@@ -69,10 +69,15 @@
   left: 50%;
   transform: translateX(-50%);
   font-size: 4rem;
+  padding: 0.5rem 8rem;
   &--ad2222 {
-    color: white;
+    color: var(--white);
     background-color: var(--blue-primary);
-    padding: 0.5rem 8rem;
     border: solid 4px var(--yellow);
+  }
+  &--paranormal {
+    color: var(--secondary-blue);
+    background-color: var(--white);
+    border: solid 4px var(--secondary-blue);
   }
 }

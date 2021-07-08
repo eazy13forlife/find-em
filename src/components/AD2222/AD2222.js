@@ -1,10 +1,10 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-
+import { createSelector } from "reselect";
 import Dropdown from "../Dropdown/Dropdown.js";
 import Header from "../Header/Header.js";
 import TargetBox from "../TargetBox/TargetBox.js";
-import { ad2222Characters } from "../../characterInfo.js";
+import { ad2222Characters, paranormalCharacters } from "../../characterInfo.js";
 import AD2222image from "../../images/ad2222.jpg";
 import "./AD2222.scss";
 import {
@@ -14,14 +14,34 @@ import {
   provideSelectionResult,
 } from "../../actions/";
 
-//create dropdown list in global scope
-let dropdownList = [];
+const getStates = createSelector(
+  (state) => state.seelctionResult,
+  (state) => state.clickCoordinates,
+  (state) => state.characterClicked,
+  (state) => state.gameboard,
+  (selectionResults, clickCoordinates, characterClicked, gameboard) => {
+    return {
+      selectionResults,
+      clickCoordinates,
+      characterClicked,
+      gameboard,
+    };
+  }
+);
+//create dropdown lists in global scope
+let ad2222DropdownList = [];
+let paranormalDropdownList = [];
 
 Object.values(ad2222Characters).forEach((object) => {
-  dropdownList.push(object);
+  ad2222DropdownList.push(object);
 });
 
-const AD2222 = () => {
+Object.values(paranormalCharacters).forEach((object) => {
+  paranormalDropdownList.push(object);
+});
+
+const AD2222 = ({ children }) => {
+  console.log(children);
   const dispatch = useDispatch();
 
   const selectionResult = useSelector((state) => {
@@ -40,7 +60,7 @@ const AD2222 = () => {
     return state.gameboardSelected;
   });
 
-  //after 8s, selectionResults turns both success and charcter properties to null, so no selection status shows on screen
+  //after 8 seconds, selectionResults turns both its success and character properties to null, so no selection status shows on screen
   useEffect(() => {
     const timerId = setTimeout(() => {
       dispatch(provideSelectionResult(null, null));
@@ -51,12 +71,13 @@ const AD2222 = () => {
     };
   }, [selectionResult]);
 
+  //when an actual character on our image is clicked
   const onCharacterClick = (name) => {
     dispatch(clickCharacter(name));
   };
 
+  //when we click anywhere on our page
   const onClick = (e) => {
-    console.log(e);
     dispatch(
       updateClickCoordinates(
         e.pageX,
@@ -67,11 +88,12 @@ const AD2222 = () => {
     );
   };
 
+  //the success or error message after choosing a character from dropdown
   const renderSelectionResults = () => {
     if (selectionResult.success !== null) {
       return (
         <p
-          className="success-message success-message--ad2222"
+          className={`success-message success-message--${gameboard}`}
           style={{ animation: "show 500ms both" }}
         >
           {selectionResult.success === true
@@ -84,6 +106,7 @@ const AD2222 = () => {
     }
   };
 
+  //function that runs when we select a character from dropdown
   const onDropdownSelection = (nameSelected) => {
     //if name of what we clicked on page doesn't match the selection we chose on dropdown
     if (nameSelected !== characterClicked) {
@@ -98,21 +121,24 @@ const AD2222 = () => {
   };
 
   return (
-    <div className="AD2222">
-      <Header charactersList={ad2222Characters} theme="ad2222" />
-      <TargetBox className="TargetBox--ad2222" position={clickCoordinates} />
+    <div className="Game">
+      <Header charactersList={ad2222Characters} theme={gameboard} />
+      <TargetBox
+        className={`TargetBox--${gameboard}`}
+        position={clickCoordinates}
+      />
       <Dropdown
-        list={dropdownList}
+        list={ad2222DropdownList}
         theme="ad2222"
         onSelection={onDropdownSelection}
       />
-      <div className="AD2222__gameboard" onClick={onClick}>
+      <div className="Game_gameboard" onClick={onClick}>
         {renderSelectionResults()}
 
         <img
           src={AD2222image}
           alt="AD2222:a painting of many worlds from film/tv"
-          className="AD2222__image"
+          className="Game__image"
         />
         <div
           className="lois"
