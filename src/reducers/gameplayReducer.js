@@ -23,6 +23,7 @@ const gameplay = {
       },
     },
     numberIdentified: 0,
+    identified: [],
   },
   ad2222: {
     characters: {
@@ -46,6 +47,7 @@ const gameplay = {
       },
     },
     numberIdentified: 0,
+    identified: [],
   },
 };
 
@@ -53,8 +55,13 @@ const gameplayReducer = (state = gameplay, action) => {
   //set true for the character in our gameplay and update numberIdentified
   if (action.type === types.IDENTIFY_CHARACTER) {
     const updatedGameplay = { ...state };
-    updatedGameplay[action.gameboard].characters[action.name] = true;
-    updatedGameplay[action.gameboard].numberIdentified += 1;
+    updatedGameplay[action.payload.gameboard].characters[
+      action.payload.name
+    ] = true;
+    updatedGameplay[action.payload.gameboard].numberIdentified += 1;
+    updatedGameplay[action.payload.gameboard].identified.push(
+      action.payload.name
+    );
     return updatedGameplay;
   }
 

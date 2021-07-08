@@ -1,12 +1,13 @@
 import types from "./types.js";
 
-const updateClickCoordinates = (x, y, targetWidth) => {
+const updateClickCoordinates = (x, y, targetWidth, targetHeight) => {
   return {
     type: types.UPDATE_CLICK_COORDINATES,
     payload: {
       x,
       y,
       targetWidth,
+      targetHeight,
     },
   };
 };

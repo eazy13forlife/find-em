@@ -2,6 +2,7 @@
   position: absolute;
   outline: 5px solid black;
   outline-offset: 3rem;
+  z-index: 1000;
   &--ad2222 {
     outline-color: var(--yellow);
   }

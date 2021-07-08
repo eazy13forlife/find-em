@@ -1,11 +1,14 @@
 .AD2222 {
   position: relative;
+
   &__gameboard {
+    position: relative;
   }
   &__image {
     width: 100%;
     display: block;
     position: absolute;
+    margin-top: 20rem;
   }
 }
 
@@ -14,7 +17,7 @@
   border: 5px solid red;
   width: 4vw;
   position: absolute;
-  margin-top: 89.3%;
+  margin-top: calc(89.3% + 20rem);
   left: 32%;
 }
 
@@ -24,7 +27,7 @@
   border: 5px solid red;
   position: absolute;
   left: 64.3%;
-  margin-top: 90.1%;
+  margin-top: calc(90.1% + 20rem);
 }
 .petergriffin {
   border: 5px solid red;
@@ -32,7 +35,7 @@
   left: 73%;
   width: 4.3vw;
   height: 5vw;
-  margin-top: 165.2%;
+  margin-top: calc(165.2% + 20rem);
 }
 .consuela {
   border: 5px solid red;
@@ -40,7 +43,7 @@
   left: 34.5%;
   width: 4.3vw;
   height: 5vw;
-  margin-top: 52.5%;
+  margin-top: calc(52.5% + 20rem);
 }
 .stewie {
   border: 5px solid red;
@@ -48,7 +51,7 @@
   left: 93%;
   width: 3vw;
   height: 3vw;
-  margin-top: 88.5%;
+  margin-top: calc(88.5% + 20rem);
 }
 .tom {
   border: 5px solid red;
@@ -56,5 +59,20 @@
   left: 84.3%;
   width: 4.3vw;
   height: 5vw;
-  margin-top: 163.2%;
+  margin-top: calc(163.2% + 20rem);
+}
+
+.success-message {
+  position: fixed;
+  z-index: 1000;
+  top: 25rem;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 4rem;
+  &--ad2222 {
+    color: white;
+    background-color: var(--blue-primary);
+    padding: 0.5rem 8rem;
+    border: solid 4px var(--yellow);
+  }
 }

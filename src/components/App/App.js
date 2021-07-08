@@ -16,13 +16,6 @@ import "./App.scss";
 const App = () => {
   const dispatch = useDispatch();
   dispatch(selectGameboard("ad2222"));
-  const clickCoordinates = useSelector((state) => {
-    return state.clickCoordinates;
-  });
-  const showCircle = (e) => {
-    dispatch(updateClickCoordinates(e.pageX, e.pageY, e.target.clientWidth));
-    console.log(e);
-  };
   return (
     /*
     <div className="background" onClick={showCircle} ref={imageRef}>
@@ -35,23 +28,8 @@ const App = () => {
       <div className="tom"></div>
     </div>
     */
-    <div className="background" onClick={showCircle}>
-      <AD2222 />
 
-      <TargetBox className="TargetBox--ad2222" position={clickCoordinates} />
-      <div
-        className="freddy14"
-        onClick={() => {
-          dispatch(clickCharacter("Freddy"));
-        }}
-      ></div>
-      <div className="hannibal39"></div>
-      <div className="leatherface53"></div>
-      <div className="shiningtri"></div>
-      <div className="it108"></div>
-      <div className="demagorgan104"></div>
-      <div className="random"></div>
-    </div>
+    <AD2222 />
   );
 };
 

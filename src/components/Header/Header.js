@@ -1,14 +1,17 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { updateClickCoordinates } from "../../actions/";
 
 import "./Header.scss";
 
 const Header = ({ charactersList, theme }) => {
+  const dispatch = useDispatch();
   // get all my characters for the gameboard we are currently on
   const allCharacters = useSelector((state) => {
     return state.gameplay[state.gameboardSelected].characters;
   });
 
+  //get images for each character in my charactersList
   const images = Object.values(charactersList).map((character, index) => {
     const name = character.name.split(" ")[0];
     const identified = allCharacters[character.name].identified;
@@ -30,7 +33,12 @@ const Header = ({ charactersList, theme }) => {
   });
 
   return (
-    <header className={`Header Header--${theme}`}>
+    <header
+      className={`Header Header--${theme}`}
+      onClick={() => {
+        dispatch(updateClickCoordinates(null, null, null));
+      }}
+    >
       <h1 className={`Header__logo Header__logo--${theme}`}>Find Em</h1>
       <div className="Header__character-images">{images}</div>
     </header>
