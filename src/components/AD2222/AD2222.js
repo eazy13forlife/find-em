@@ -1,10 +1,9 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { createSelector } from "reselect";
-import Dropdown from "../Dropdown/Dropdown.js";
-import Header from "../Header/Header.js";
-import TargetBox from "../TargetBox/TargetBox.js";
+
 import { ad2222Characters, paranormalCharacters } from "../../characterInfo.js";
+import Game from "../Paranormal/Paranormal.js";
 import AD2222image from "../../images/ad2222.jpg";
 import "./AD2222.scss";
 import {
@@ -14,51 +13,43 @@ import {
   provideSelectionResult,
 } from "../../actions/";
 
+//create a memoized selector for all the states i need, so i dont have to list one by one
 const getStates = createSelector(
-  (state) => state.seelctionResult,
+  (state) => state.selectionResult,
   (state) => state.clickCoordinates,
   (state) => state.characterClicked,
-  (state) => state.gameboard,
-  (selectionResults, clickCoordinates, characterClicked, gameboard) => {
+  (state) => state.gameboardSelected,
+  (selectionResult, clickCoordinates, characterClicked, gameboardSelected) => {
     return {
-      selectionResults,
+      selectionResult,
       clickCoordinates,
       characterClicked,
-      gameboard,
+      gameboardSelected,
     };
   }
 );
+
 //create dropdown lists in global scope
-let ad2222DropdownList = [];
-let paranormalDropdownList = [];
+let ad2222CharactersList = [];
+let paranormalCharactersList = [];
 
 Object.values(ad2222Characters).forEach((object) => {
-  ad2222DropdownList.push(object);
+  ad2222CharactersList.push(object);
 });
 
 Object.values(paranormalCharacters).forEach((object) => {
-  paranormalDropdownList.push(object);
+  paranormalCharactersList.push(object);
 });
 
-const AD2222 = ({ children }) => {
-  console.log(children);
+const AD2222 = () => {
   const dispatch = useDispatch();
 
-  const selectionResult = useSelector((state) => {
-    return state.selectionResult;
-  });
-
-  const clickCoordinates = useSelector((state) => {
-    return state.clickCoordinates;
-  });
-
-  const characterClicked = useSelector((state) => {
-    return state.characterClicked;
-  });
-
-  const gameboard = useSelector((state) => {
-    return state.gameboardSelected;
-  });
+  const {
+    selectionResult,
+    clickCoordinates,
+    characterClicked,
+    gameboardSelected,
+  } = useSelector(getStates);
 
   //after 8 seconds, selectionResults turns both its success and character properties to null, so no selection status shows on screen
   useEffect(() => {
@@ -93,7 +84,7 @@ const AD2222 = ({ children }) => {
     if (selectionResult.success !== null) {
       return (
         <p
-          className={`success-message success-message--${gameboard}`}
+          className={`success-message success-message--${gameboardSelected}`}
           style={{ animation: "show 500ms both" }}
         >
           {selectionResult.success === true
@@ -114,71 +105,60 @@ const AD2222 = ({ children }) => {
       //update state about error or success
     } else {
       dispatch(provideSelectionResult(true, nameSelected));
-      dispatch(identifyCharacter(gameboard, nameSelected));
+      dispatch(identifyCharacter(gameboardSelected, nameSelected));
       //show success message
     }
     dispatch(updateClickCoordinates(null, null, null));
   };
 
   return (
-    <div className="Game">
-      <Header charactersList={ad2222Characters} theme={gameboard} />
-      <TargetBox
-        className={`TargetBox--${gameboard}`}
-        position={clickCoordinates}
-      />
-      <Dropdown
-        list={ad2222DropdownList}
-        theme="ad2222"
-        onSelection={onDropdownSelection}
-      />
-      <div className="Game_gameboard" onClick={onClick}>
-        {renderSelectionResults()}
-
-        <img
-          src={AD2222image}
-          alt="AD2222:a painting of many worlds from film/tv"
-          className="Game__image"
-        />
-        <div
-          className="lois"
-          onClick={() => {
-            onCharacterClick("Lois Griffin");
-          }}
-        ></div>
-        <div
-          className="patrick"
-          onClick={() => {
-            onCharacterClick("Patrick Star");
-          }}
-        ></div>
-        <div
-          className="petergriffin"
-          onClick={() => {
-            onCharacterClick("Peter Griffin");
-          }}
-        ></div>
-        <div
-          className="consuela"
-          onClick={() => {
-            onCharacterClick("Consuela");
-          }}
-        ></div>
-        <div
-          className="stewie"
-          onClick={() => {
-            onCharacterClick("Stewie Griffin");
-          }}
-        ></div>
-        <div
-          className="tom"
-          onClick={() => {
-            console.log("hey");
-            onCharacterClick("Tom");
-          }}
-        ></div>
-      </div>
-    </div>
+    <Game
+      charactersList={ad2222CharactersList}
+      gameboard={gameboardSelected}
+      clickCoordinates={clickCoordinates}
+      renderSelectionResults={renderSelectionResults}
+      gameboardImage={AD2222image}
+      onClick={onClick}
+      onDropdownSelection={onDropdownSelection}
+    >
+      <div
+        className="lois"
+        onClick={() => {
+          onCharacterClick("Lois Griffin");
+        }}
+      ></div>
+      <div
+        className="patrick"
+        onClick={() => {
+          onCharacterClick("Patrick Star");
+        }}
+      ></div>
+      <div
+        className="petergriffin"
+        onClick={() => {
+          onCharacterClick("Peter Griffin");
+        }}
+      ></div>
+      <div
+        className="consuela"
+        onClick={() => {
+          onCharacterClick("Consuela");
+        }}
+      ></div>
+      <div
+        className="stewie"
+        onClick={() => {
+          onCharacterClick("Stewie Griffin");
+        }}
+      ></div>
+      <div
+        className="tom"
+        onClick={() => {
+          console.log("hey");
+          onCharacterClick("Tom");
+        }}
+      ></div>
+    </Game>
   );
 };
 

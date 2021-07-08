@@ -5,7 +5,7 @@ import Dropdown from "../Dropdown/Dropdown.js";
 import TargetBox from "../TargetBox/TargetBox.js";
 import "./Paranormal.scss";
 
-const Paranormal = ({
+const Game = ({
   charactersList,
   gameboard,
   clickCoordinates,
@@ -32,7 +32,7 @@ const Paranormal = ({
 
         <img
           src={gameboardImage}
-          alt={`${gameboard.toUpperCase()}`}
+          alt={`${gameboard}`}
           className="Game__image"
         />
         {children}
@@ -53,4 +53,4 @@ const Paranormal = ({
   */
 };
 
-export default Paranormal;
+export default Game;
