@@ -2,7 +2,7 @@ import types from "../actions/types.js";
 
 const defaultSelection = {
   success: null,
-  character: null,
+  characterName: null,
 };
 
 const selectionResultReducer = (state = defaultSelection, action) => {

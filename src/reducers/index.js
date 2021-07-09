@@ -5,6 +5,7 @@ import characterClickedReducer from "./characterClickedReducer";
 import gameboardSelectedReducer from "./gameboardSelectedReducer.js";
 import gameplayReducer from "./gameplayReducer.js";
 import selectionResultReducer from "./selectionResultReducer.js";
+import timerReducer from "./timerReducer.js";
 
 export default combineReducers({
   clickCoordinates: clickCoordinatesReducer,
@@ -12,4 +13,5 @@ export default combineReducers({
   gameboardSelected: gameboardSelectedReducer,
   gameplay: gameplayReducer,
   selectionResult: selectionResultReducer,
+  timer: timerReducer,
 });

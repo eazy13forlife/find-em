@@ -2,6 +2,7 @@ import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { updateClickCoordinates } from "../../actions/";
 
+import Timer from "../Timer/Timer.js";
 import "./Header.scss";
 
 const Header = ({ charactersList, theme }) => {
@@ -40,6 +41,7 @@ const Header = ({ charactersList, theme }) => {
       }}
     >
       <h1 className={`Header__logo Header__logo--${theme}`}>Find Em</h1>
+      <Timer />
       <div className="Header__character-images">{images}</div>
     </header>
   );

@@ -4,7 +4,7 @@ import { createSelector } from "reselect";
 
 import { ad2222Characters, paranormalCharacters } from "../../characterInfo.js";
 import Game from "../Game/Game.js";
-import AD2222image from "../../images/ad2222.jpg";
+import AD2222Image from "../../images/ad2222.jpg";
 import paranormalImage from "../../images/paranormal.jpg";
 import "./App.scss";
 import {
@@ -46,6 +46,8 @@ Object.values(paranormalCharacters).forEach((object) => {
 const App = () => {
   const dispatch = useDispatch();
 
+  console.log("yo");
+
   dispatch(selectGameboard("ad2222"));
 
   const {
@@ -55,10 +57,12 @@ const App = () => {
     gameboardSelected,
   } = useSelector(getStates);
 
-  //after 8 seconds, selectionResults turns both its success and character properties to null, so no selection status shows on screen
+  //if a character has been  clicked, after 4 seconds, we change selectionResults to null so nothing shows on screen anymore. If selectionResult changes again,(so we click a new character) before the 4000ms of the other timerId is up, we want to remove that timerId so that function doesnt run, and then wait another 4s before setting to null
   useEffect(() => {
     const timerId = setTimeout(() => {
-      dispatch(provideSelectionResult(null, null));
+      if (selectionResult.characterName !== null) {
+        dispatch(provideSelectionResult(null, null));
+      }
     }, 4000);
 
     return () => {
@@ -121,7 +125,7 @@ const App = () => {
       gameboard={gameboardSelected}
       clickCoordinates={clickCoordinates}
       renderSelectionResults={renderSelectionResults}
-      gameboardImage={paranormalImage}
+      gameboardImage={AD2222Image}
       onClick={onClick}
       onDropdownSelection={onDropdownSelection}
     >
