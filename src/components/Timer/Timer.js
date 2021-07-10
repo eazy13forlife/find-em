@@ -15,8 +15,28 @@ const Timer = () => {
   const timer = useSelector((state) => {
     return state.timer;
   });
-  console.log(timer.seconds);
 
+  useEffect(() => {
+    const timerId = setTimeout(() => {
+      if (timer.seconds === 59) {
+        dispatch(setSeconds(0));
+        if (timer.minutes === 59) {
+          dispatch(setMinutes(0));
+          dispatch(incrementHours());
+        } else {
+          dispatch(incrementMinutes());
+        }
+      } else {
+        dispatch(incrementSeconds());
+      }
+    }, 1000);
+
+    return () => {
+      clearTimeout(timerId);
+    };
+  }, [timer.seconds]);
+
+  /*
   useEffect(() => {
     setTimeout(() => {
       if (timer.seconds === 59) {
@@ -42,7 +62,7 @@ const Timer = () => {
       dispatch(incrementHours());
     }, 3600000);
   }, [timer.hours]);
-
+*/
   const renderSeconds = () => {
     if (timer.seconds < 10) {
       return <p className="text text--large">{`0${timer.seconds}`}</p>;

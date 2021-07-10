@@ -66,4 +66,19 @@ const paranormalCharacters = {
   },
 };
 
-export { paranormalCharacters, ad2222Characters };
+//create dropdown lists in global scope
+let ad2222CharactersList = [];
+
+let paranormalCharactersList = [];
+
+Object.values(ad2222Characters).forEach((object) => {
+  ad2222CharactersList.push(object);
+});
+
+Object.values(paranormalCharacters).forEach((object) => {
+  paranormalCharactersList.push(object);
+});
+
+console.log(paranormalCharactersList);
+
+export { ad2222CharactersList, paranormalCharactersList };

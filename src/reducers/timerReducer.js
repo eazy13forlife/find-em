@@ -13,7 +13,6 @@ const timerReducer = (state = timer, action) => {
     case types.INCREMENT_MINUTES:
       return { ...state, minutes: (state.minutes += 1) };
     case types.INCREMENT_HOURS:
-      console.log("ghey");
       return { ...state, hours: (state.hours += 1) };
     case types.SET_SECONDS:
       return { ...state, seconds: action.payload };

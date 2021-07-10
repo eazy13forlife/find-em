@@ -8,12 +8,16 @@ const Dropdown = ({ list, theme, onSelection }) => {
     return state.clickCoordinates;
   });
 
-  const getPositionCoords2 = (x, y, targetWidth, targetHeight) => {
+  const gameboardDimensions = useSelector((state) => {
+    return state.gameboardDimensions;
+  });
+
+  const getPositionCoords2 = (x, y, gameboardWidth, gameboardHeight) => {
     if (!x || !y) {
       return { display: "none" };
     }
-    const exceedsLeftRange = x / targetWidth >= 0.75;
-    const exceedsTopRange = y / targetHeight >= 0.88;
+    const exceedsLeftRange = x / gameboardWidth >= 0.75;
+    const exceedsTopRange = y / gameboardHeight >= 0.88;
 
     const normalTop = `calc(${y}px + 4rem)`;
     const normalLeft = `calc(${x}px)`;
@@ -81,8 +85,8 @@ const Dropdown = ({ list, theme, onSelection }) => {
       style={getPositionCoords2(
         position.x,
         position.y,
-        position.targetWidth,
-        position.targetHeight
+        gameboardDimensions.width,
+        gameboardDimensions.height
       )}
       onClick={(e) => {
         e.stopPropagation();

@@ -1,5 +1,5 @@
 import { updateClickCoordinates, clickCharacter } from "./click.js";
-import { selectGameboard } from "./gameboard.js";
+import { selectGameboard, provideGameboardDimensions } from "./gameboard.js";
 import { identifyCharacter, provideSelectionResult } from "./gameplay.js";
 import {
   incrementSeconds,
@@ -20,4 +20,5 @@ export {
   incrementMinutes,
   setSeconds,
   setMinutes,
+  provideGameboardDimensions,
 };

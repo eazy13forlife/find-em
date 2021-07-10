@@ -81,15 +81,24 @@
     border: solid 4px var(--secondary-blue);
   }
 }
+.winl {
+  position: absolute;
+  font-size: 8rem;
+  z-index: 4131345134;
+}
+.win {
+  position: absolute;
+  font-size: 8rem;
+  z-index: 4131345134;
+}
 
-/*
 .freddy14 {
   border: 5px solid red;
   position: absolute;
   left: 33.5%;
   width: 8.8vw;
   height: 17.3vw;
-  margin-top: 15.5%;
+  margin-top: calc(15.5% + 20rem);
 }
 .hannibal39 {
   border: 5px solid red;
@@ -97,7 +106,7 @@
   left: 57.5%;
   width: 7.5vw;
   height: 17.3vw;
-  margin-top: 46.5%;
+  margin-top: calc(46.5% + 20rem);
 }
 .leatherface53 {
   border: 5px solid red;
@@ -105,7 +114,7 @@
   left: 65.5%;
   width: 10.4vw;
   height: 20.7vw;
-  margin-top: 37.5%;
+  margin-top: calc(37.5% + 20rem);
 }
 .shiningtri {
   border: 5px solid red;
@@ -113,7 +122,7 @@
   left: 91.5%;
   width: 8vw;
   height: 9vw;
-  margin-top: 20.5%;
+  margin-top: calc(20.5% + 20rem);
 }
 .it108 {
   border: 5px solid red;
@@ -121,7 +130,7 @@
   left: 50.5%;
   width: 11vw;
   height: 9vw;
-  margin-top: 140.5%;
+  margin-top: calc(140.5% + 20rem);
 }
 .demagorgan104 {
   border: 5px solid red;
@@ -129,6 +138,5 @@
   left: 68.5%;
   width: 18vw;
   height: 18vw;
-  margin-top: 119.5%;
+  margin-top: calc(119.5% + 20rem);
 }
-*/

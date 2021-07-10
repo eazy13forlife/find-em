@@ -1,7 +1,7 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { updateClickCoordinates } from "../../actions/";
-
+import { charactersList } from "../../characterInfo.js";
 import Timer from "../Timer/Timer.js";
 import "./Header.scss";
 
