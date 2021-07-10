@@ -38,6 +38,7 @@ const Game = ({
   const renderedCharacters = charactersList.map((character, index) => {
     const className = character.name.toLowerCase().split(" ").join("-");
     console.log(className);
+    console.log(character.name);
     return (
       <div
         key={index}

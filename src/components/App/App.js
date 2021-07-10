@@ -115,6 +115,7 @@ const App = () => {
     }
   };
 
+  //display a red border when the correct character has been selected
   const displayRedBorder = (name) => {
     if (charactersIdentified.includes(name)) {
       return {
@@ -140,43 +141,7 @@ const App = () => {
           numberIdentified={numberIdentified}
           displayRedBorder={displayRedBorder}
           onCharacterClick={onCharacterClick}
-        >
-          <div
-            className="patrick"
-            onClick={() => {
-              onCharacterClick("Patrick Star");
-            }}
-            style={displayRedBorder("Patrick Star")}
-          ></div>
-          <div
-            className="petergriffin"
-            onClick={() => {
-              onCharacterClick("Peter Griffin");
-            }}
-            style={displayRedBorder("Peter Griffin")}
-          ></div>
-          <div
-            className="consuela"
-            onClick={() => {
-              onCharacterClick("Consuela");
-            }}
-            style={displayRedBorder("Consuela")}
-          ></div>
-          <div
-            className="stewie"
-            onClick={() => {
-              onCharacterClick("Stewie Griffin");
-            }}
-            style={displayRedBorder("Stewie Griffin")}
-          ></div>
-          <div
-            className="tom"
-            onClick={() => {
-              onCharacterClick("Tom");
-            }}
-            style={displayRedBorder("Tom")}
-          ></div>
-        </Game>
+        />
       );
     } else if (gameboardSelected === "paranormal") {
       return (
@@ -191,44 +156,7 @@ const App = () => {
           numberIdentified={numberIdentified}
           onCharacterClick={onCharacterClick}
           displayRedBorder={displayRedBorder}
-        >
-          <div
-            className="freddy14"
-            onClick={() => {
-              onCharacterClick("Freddy Krueger");
-            }}
-          ></div>
-          <div
-            className="hannibal39"
-            onClick={() => {
-              onCharacterClick("Hannibal Lecter");
-            }}
-          ></div>
-          <div
-            className="leatherface53"
-            onClick={() => {
-              onCharacterClick("Leatherface");
-            }}
-          ></div>
-          <div
-            className="shiningtri"
-            onClick={() => {
-              onCharacterClick("Tricycle from The Shining");
-            }}
-          ></div>
-          <div
-            className="it108"
-            onClick={() => {
-              onCharacterClick("It");
-            }}
-          ></div>
-          <div
-            className="demagorgan104"
-            onClick={() => {
-              onCharacterClick("Demagorgon");
-            }}
-          ></div>
-        </Game>
+        />
       );
     }
   };
