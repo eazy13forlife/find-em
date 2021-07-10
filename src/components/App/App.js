@@ -9,7 +9,7 @@ import {
 
 import Game from "../Game/Game.js";
 import AD2222Image from "../../images/ad2222.jpg";
-import paranormalImage from "../../images/paranormal.jpg";
+import paranormalImage from "../../images/paranormalcopy.jpg";
 import "./App.scss";
 import {
   clickCharacter,
@@ -39,6 +39,7 @@ const getStates = createSelector(
       characterClicked,
       gameboardSelected,
       numberIdentified: gameplay[gameboardSelected].numberIdentified,
+      charactersIdentified: gameplay[gameboardSelected].identified,
     };
   }
 );
@@ -52,15 +53,17 @@ const App = () => {
     characterClicked,
     gameboardSelected,
     numberIdentified,
+    charactersIdentified,
   } = useSelector(getStates);
 
+  console.log(charactersIdentified);
   //if a character has been  clicked, after 4 seconds, we change selectionResults to null so nothing shows on screen anymore. If selectionResult changes again,(so we click a new character) before the 4000ms of the other timerId is up, we want to remove that timerId so that function doesnt run, and then wait another 4s before setting to null
   useEffect(() => {
     const timerId = setTimeout(() => {
       if (selectionResult.characterName !== null) {
         dispatch(provideSelectionResult(null, null));
       }
-    }, 1000);
+    }, 1500);
 
     return () => {
       clearTimeout(timerId);
@@ -71,6 +74,7 @@ const App = () => {
   const onClick = (e) => {
     console.log(e);
     dispatch(updateClickCoordinates(e.pageX, e.pageY));
+    dispatch(provideSelectionResult(null, null));
   };
 
   //when an actual character on our image is clicked
@@ -111,6 +115,16 @@ const App = () => {
     }
   };
 
+  const displayRedBorder = (name) => {
+    if (charactersIdentified.includes(name)) {
+      return {
+        border: "5px solid red",
+      };
+    } else {
+      return null;
+    }
+  };
+
   const renderGame = () => {
     if (gameboardSelected === "ad2222") {
       console.log("sasdfaadfadfasdf");
@@ -124,42 +138,43 @@ const App = () => {
           onClick={onClick}
           onDropdownSelection={onDropdownSelection}
           numberIdentified={numberIdentified}
+          displayRedBorder={displayRedBorder}
+          onCharacterClick={onCharacterClick}
         >
-          <div
-            className="lois"
-            onClick={() => {
-              onCharacterClick("Lois Griffin");
-            }}
-          ></div>
           <div
             className="patrick"
             onClick={() => {
               onCharacterClick("Patrick Star");
             }}
+            style={displayRedBorder("Patrick Star")}
           ></div>
           <div
             className="petergriffin"
             onClick={() => {
               onCharacterClick("Peter Griffin");
             }}
+            style={displayRedBorder("Peter Griffin")}
           ></div>
           <div
             className="consuela"
             onClick={() => {
               onCharacterClick("Consuela");
             }}
+            style={displayRedBorder("Consuela")}
           ></div>
           <div
             className="stewie"
             onClick={() => {
               onCharacterClick("Stewie Griffin");
             }}
+            style={displayRedBorder("Stewie Griffin")}
           ></div>
           <div
             className="tom"
             onClick={() => {
               onCharacterClick("Tom");
             }}
+            style={displayRedBorder("Tom")}
           ></div>
         </Game>
       );
@@ -175,6 +190,7 @@ const App = () => {
           onDropdownSelection={onDropdownSelection}
           numberIdentified={numberIdentified}
           onCharacterClick={onCharacterClick}
+          displayRedBorder={displayRedBorder}
         >
           <div
             className="freddy14"

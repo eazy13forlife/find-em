@@ -18,12 +18,14 @@ const Game = ({
   onDropdownSelection,
   numberIdentified,
   onCharacterClick,
+  displayRedBorder,
 }) => {
   const imageRef = useRef();
+
   const dispatch = useDispatch();
+
   useEffect(() => {
     imageRef.current.addEventListener("load", () => {
-      console.log("hey");
       dispatch(
         provideGameboardDimensions(
           imageRef.current.clientWidth,
@@ -32,6 +34,24 @@ const Game = ({
       );
     });
   }, []);
+
+  const renderedCharacters = charactersList.map((character, index) => {
+    const className = character.name.toLowerCase().split(" ").join("-");
+    console.log(className);
+    return (
+      <div
+        key={index}
+        className={className}
+        onClick={() => {
+          onCharacterClick(character.name);
+        }}
+        style={displayRedBorder(character.name)}
+      ></div>
+    );
+  });
+
+  console.log(renderedCharacters);
+
   return (
     <div className="Game">
       {numberIdentified === 6 ? (
@@ -51,14 +71,14 @@ const Game = ({
       />
       <div className="Game__gameboard" onClick={onClick}>
         {renderSelectionResults()}
-
         <img
           src={gameboardImage}
           alt={`${gameboard}`}
           className="Game__image"
           ref={imageRef}
         />
-        {children}
+
+        {renderedCharacters}
       </div>
     </div>
   );

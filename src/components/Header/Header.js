@@ -1,4 +1,5 @@
 import React from "react";
+import history from "../../history.js";
 import { useSelector, useDispatch } from "react-redux";
 import { updateClickCoordinates } from "../../actions/";
 import { charactersList } from "../../characterInfo.js";
@@ -18,12 +19,15 @@ const Header = ({ charactersList, theme }) => {
     const identified = allCharacters[character.name].identified === true;
 
     return (
-      <figure className="Header__image-container" key={index}>
+      <figure
+        className={`Header__image-container Header__image-container--${theme}`}
+        key={index}
+      >
         <img
           src={character.image}
           alt={character.name}
-          className={`Header__image ${
-            identified ? "Header__image" : "Header__image--hidden"
+          className={`Header__image Header__image--${theme} Header__image--${name} ${
+            identified ? null : "Header__image--hidden"
           }`}
         />
         <figcaption className="Header__image-name text--medium text--white">
@@ -40,7 +44,14 @@ const Header = ({ charactersList, theme }) => {
         dispatch(updateClickCoordinates(null, null, null));
       }}
     >
-      <h1 className={`Header__logo Header__logo--${theme}`}>Find Em</h1>
+      <h1
+        className={`Header__logo Header__logo--${theme}`}
+        onClick={() => {
+          history.push("/");
+        }}
+      >
+        Find Em
+      </h1>
       <Timer />
       <div className="Header__character-images">{images}</div>
     </header>

@@ -1,3 +1,4 @@
+@import "../../styles/abstracts/_mixins.scss";
 .Header {
   display: grid;
   padding: 3rem 2rem 0rem 5rem;
@@ -12,20 +13,31 @@
     background-color: var(--yellow);
   }
   &--paranormal {
-    background-color: var(--white);
+    background-color: #a6ffa5;
   }
   &__logo {
     grid-column: col-start 1 / col-end 3;
+    cursor: pointer;
   }
   &__character-images {
     grid-column: col-start 6 / col-end 12;
     display: flex;
+    margin-right: 4rem;
+    @include respondMax(950px) {
+      margin-top: 5rem;
+    }
   }
   &__image-container {
     width: 160px;
     position: relative;
     &:not(:first-child) {
       margin-left: -4rem;
+    }
+    &--paranormal {
+      width: 140px;
+      @include respondMax(950px) {
+        margin-left: -9rem;
+      }
     }
   }
   &__image {
@@ -35,6 +47,21 @@
     transition: all 300ms;
     &--hidden {
       filter: contrast(0.5) brightness(0.5);
+    }
+    &--paranormal {
+      width: 120%;
+    }
+    &--It {
+      transform: translateX(-2rem) translateY(2rem);
+      width: 180%;
+    }
+    &--Demagorgon {
+      transform: translateY(4rem) translateX(4rem);
+    }
+    &--Tricycle {
+      width: 200%;
+      z-index: 80000;
+      position: absolute;
     }
   }
   &__image-name {
