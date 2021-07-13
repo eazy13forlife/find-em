@@ -55,6 +55,7 @@ const GameCard = ({
       }
     }
   }, [gameBoardIndex, forward]);
+
   const renderedItems = charactersList.map((character, index) => {
     return (
       <React.Fragment key={index}>
@@ -72,28 +73,6 @@ const GameCard = ({
       </React.Fragment>
     );
   });
-  const getZIndexStyle = () => {
-    if (zindex) {
-      return zindex;
-    } else {
-      return 0;
-    }
-  };
-  /*
-  const getAnimationStyle = () => {
-    if (gameBoardIndex === null) {
-      return "none";
-    } else {
-      if (index !== gameBoardIndex) {
-        //then its leaving
-        return "slideToLeftFromCenter ease-in 2000ms forwards";
-      } else {
-        //its entering
-        return "slideToCenterFromRight ease-in 2000ms forwards";
-      }
-    }
-  };
-*/
 
   return (
     <div className={`GameCard GameCard--${gameboard} ${position}`}>
@@ -117,54 +96,4 @@ const GameCard = ({
   );
 };
 
-/*
-useEffect(() => {
-  if (forward) {
-    if (gameBoardIndex === null) {
-    } else if (index !== gameBoardIndex) {
-      //if initially in center,just move it left
-      if (position === `GameCard--center`) {
-        setPosition("GameCard--center GameCard--center--move-left");
-      }
-
-      //if iniitally to the right but moved to the center,just move to left again
-      if (position === "GameCard--right GameCard--right--move-center") {
-        setPosition(
-          "GameCard--right GameCard--right--move-center GameCard--right--move-center--move-left"
-        );
-      }
-    } else {
-      //if initially to the right, move to the center so it can be seen
-      if (position === `GameCard--right`) {
-        setPosition("GameCard--right GameCard--right--move-center");
-      }
-    }
-  } else {
-    if (gameBoardIndex === null) {
-    } else if (index !== gameBoardIndex) {
-      //if initially in center,just move it to the right, so it wont be seen
-      if (position === `GameCard--center`) {
-        setPosition("GameCard--center GameCard--center--move-right");
-      }
-
-      //if iniitally to the right but moved to the center,just move to right again
-      if (position === "GameCard--right GameCard--right--move-center") {
-        setPosition("GameCard--right");
-      }
-    } else {
-      //if initially to the center but then moved to the left, move to the center so it can be seen
-      if (position === "GameCard--center GameCard--center--move-left") {
-        setPosition("GameCard--center");
-      }
-
-      if (
-        position ===
-        "GameCard--right GameCard--right--move-center GameCard--right--move-center--move-left"
-      ) {
-        setPosition("GameCard--right GameCard--right--move-center");
-      }
-    }
-  }
-}, [gameBoardIndex, forward]);
-*/
 export default GameCard;

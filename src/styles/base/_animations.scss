@@ -8,19 +8,30 @@
   }
 }
 
-@keyframes slideToLeftFromCenter {
+@keyframes slideToLeft {
   0% {
     left: 50%;
   }
   100% {
-    left: -150%;
+    left: -10%;
+    height: 900px;
   }
 }
 
-@keyframes slideToCenterFromRight {
+@keyframes slideToCenter {
   0% {
+    left: -10%;
   }
   100% {
     left: 50%;
+  }
+}
+
+@keyframes slideToRight {
+  0% {
+    left: 50%;
+  }
+  100% {
+    left: 150%;
   }
 }

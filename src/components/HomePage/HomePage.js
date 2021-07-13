@@ -19,6 +19,8 @@ import {
 
 import history from "../../history.js";
 
+import "./HomePage.scss";
+
 const HomePage = () => {
   const dispatch = useDispatch();
 
