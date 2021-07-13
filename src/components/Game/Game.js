@@ -20,6 +20,7 @@ const Game = ({
   onCharacterClick,
   displayRedBorder,
 }) => {
+  console.log("yiiiii");
   const imageRef = useRef();
 
   const dispatch = useDispatch();
@@ -37,8 +38,6 @@ const Game = ({
 
   const renderedCharacters = charactersList.map((character, index) => {
     const className = character.name.toLowerCase().split(" ").join("-");
-    console.log(className);
-    console.log(character.name);
     return (
       <div
         key={index}
@@ -50,8 +49,6 @@ const Game = ({
       ></div>
     );
   });
-
-  console.log(renderedCharacters);
 
   return (
     <div className="Game">

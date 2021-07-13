@@ -3,8 +3,28 @@
   --yellow: #ffd500;
   --white: white;
   --secondary-blue: #1000c3;
+  --green: #a6ffa5;
+  --purple: #f369ff;
+}
+.blue-primary {
+  color: var(--blue-primary);
+}
+.yellow {
+  color: var(--yellow);
+}
+.white {
+  color: var(--white);
+}
+.secondary-blue {
+  color: var(--secondary-blue);
+}
+.purple {
+  color: var(--purple);
 }
 
+:root.green {
+  --green: green;
+}
 html {
   font-size: 62.5%;
 }

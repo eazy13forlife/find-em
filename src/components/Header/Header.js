@@ -7,6 +7,7 @@ import Timer from "../Timer/Timer.js";
 import "./Header.scss";
 
 const Header = ({ charactersList, theme }) => {
+  console.log("buddy");
   const dispatch = useDispatch();
   // get all my characters for the gameboard we are currently on
   const allCharacters = useSelector((state) => {

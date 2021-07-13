@@ -9,6 +9,9 @@
 }
 
 .text {
+  &--extra-small {
+    font-size: 2.3rem;
+  }
   &--small {
     font-size: 2.5rem;
   }
@@ -20,5 +23,18 @@
   }
   &--white {
     color: white;
+  }
+}
+
+.header2 {
+  font-size: 4rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &__main {
+  }
+  &__sub {
+    font-size: 2rem;
   }
 }

@@ -23,12 +23,8 @@ const HomePage = () => {
   const dispatch = useDispatch();
 
   const [gameBoardIndex, setGameBoardIndex] = useState(null);
-  const [forward, setForward] = useState(true);
 
   const incrementGameBoardIndex = () => {
-    if (!forward) {
-      setForward(true);
-    }
     if (gameBoardIndex === null) {
       setGameBoardIndex(1);
     } else {
@@ -41,9 +37,6 @@ const HomePage = () => {
   };
 
   const decrementGameBoardIndex = () => {
-    if (forward) {
-      setForward(false);
-    }
     if (gameBoardIndex === null) {
       setGameBoardIndex(5);
     } else {
@@ -74,10 +67,9 @@ const HomePage = () => {
           charactersList={ad2222CharactersList}
           mainColor="yellow"
           subColor="white"
-          startPosition="center"
+          startPosition="50%"
           gameBoardIndex={gameBoardIndex}
           index={0}
-          forward={forward}
         />
 
         <GameCard
@@ -86,10 +78,9 @@ const HomePage = () => {
           charactersList={paranormalCharactersList}
           mainColor="secondary-blue"
           subColor="purple"
-          startPosition="right"
+          startPosition="150%"
           gameBoardIndex={gameBoardIndex}
           index={1}
-          forward={forward}
         />
 
         <GameCard
@@ -98,10 +89,9 @@ const HomePage = () => {
           charactersList={paranormalCharactersList}
           mainColor="secondary-blue"
           subColor="purple"
-          startPosition="right"
+          startPosition="150%"
           gameBoardIndex={gameBoardIndex}
           index={2}
-          forward={forward}
         />
 
         <GameCard
@@ -110,10 +100,9 @@ const HomePage = () => {
           charactersList={ad2222CharactersList}
           mainColor="yellow"
           subColor="white"
-          startPosition="right"
+          startPosition="150%"
           gameBoardIndex={gameBoardIndex}
           index={3}
-          forward={forward}
         />
         <GameCard
           image={ad2222Image}
@@ -121,10 +110,9 @@ const HomePage = () => {
           charactersList={ad2222CharactersList}
           mainColor="yellow"
           subColor="white"
-          startPosition="right"
+          startPosition="150%"
           gameBoardIndex={gameBoardIndex}
           index={4}
-          forward={forward}
         />
         <GameCard
           image={ad2222Image}
@@ -132,10 +120,9 @@ const HomePage = () => {
           charactersList={ad2222CharactersList}
           mainColor="yellow"
           subColor="white"
-          startPosition="right"
+          startPosition="150%"
           gameBoardIndex={gameBoardIndex}
           index={5}
-          forward={forward}
         />
 
         <button className="next" onClick={incrementGameBoardIndex}>
