@@ -11,7 +11,6 @@ import {
 import "./Timer.scss";
 
 const Timer = () => {
-  console.log("timer");
   const dispatch = useDispatch();
   const timer = useSelector((state) => {
     return state.timer;

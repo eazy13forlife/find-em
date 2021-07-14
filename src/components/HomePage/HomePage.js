@@ -9,6 +9,8 @@ import {
   paranormalCharactersList,
 } from "../../characterInfo.js";
 
+import ImageSlider from "../ImageSlider/ImageSlider.js";
+
 import {
   selectGameboard,
   setMinutes,
@@ -57,8 +59,59 @@ const HomePage = () => {
       setGameBoardIndex(decrementedIndex);
     }
   };
+  const allImages = [
+    <GameCard
+      image={ad2222Image}
+      gameboard="ad2222"
+      charactersList={ad2222CharactersList}
+      mainColor="yellow"
+      subColor="white"
+      startPosition="center"
+    />,
 
-  console.log(gameBoardIndex);
+    <GameCard
+      image={paranormalImage}
+      gameboard="paranormal"
+      charactersList={paranormalCharactersList}
+      mainColor="secondary-blue"
+      subColor="purple"
+      startPosition="right"
+    />,
+
+    <GameCard
+      image={paranormalImage}
+      gameboard="paranormal"
+      charactersList={paranormalCharactersList}
+      mainColor="secondary-blue"
+      subColor="purple"
+      startPosition="right"
+    />,
+
+    <GameCard
+      image={ad2222Image}
+      gameboard="ad2222"
+      charactersList={ad2222CharactersList}
+      mainColor="yellow"
+      subColor="white"
+      startPosition="right"
+    />,
+    <GameCard
+      image={ad2222Image}
+      gameboard="ad2222"
+      charactersList={ad2222CharactersList}
+      mainColor="yellow"
+      subColor="white"
+      startPosition="right"
+    />,
+    <GameCard
+      image={ad2222Image}
+      gameboard="ad2222"
+      charactersList={ad2222CharactersList}
+      mainColor="yellow"
+      subColor="white"
+      startPosition="right"
+    />,
+  ];
   useEffect(() => {
     dispatch(setMinutes(0));
     dispatch(setSeconds(0));
@@ -70,6 +123,7 @@ const HomePage = () => {
     <div className="HomePage">
       <header className="Header__logo">Find Em</header>
       <div className="HomePage__selection-containaer">
+        /*
         <GameCard
           image={ad2222Image}
           gameboard="ad2222"
@@ -81,7 +135,6 @@ const HomePage = () => {
           index={0}
           forward={forward}
         />
-
         <GameCard
           image={paranormalImage}
           gameboard="paranormal"
@@ -93,7 +146,6 @@ const HomePage = () => {
           index={1}
           forward={forward}
         />
-
         <GameCard
           image={paranormalImage}
           gameboard="paranormal"
@@ -105,7 +157,6 @@ const HomePage = () => {
           index={2}
           forward={forward}
         />
-
         <GameCard
           image={ad2222Image}
           gameboard="ad2222"
@@ -139,11 +190,9 @@ const HomePage = () => {
           index={5}
           forward={forward}
         />
-
         <button className="next" onClick={incrementGameBoardIndex}>
           Go Next
         </button>
-
         <button className="next" onClick={decrementGameBoardIndex}>
           Go Previous
         </button>
@@ -172,6 +221,7 @@ const HomePage = () => {
       </div>
       **/}
       </div>
+      <ImageSlider array={allImages} />
     </div>
   );
 };

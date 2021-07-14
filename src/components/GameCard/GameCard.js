@@ -16,7 +16,6 @@ const GameCard = ({
   startPosition,
   gameBoardIndex,
   index,
-  zindex,
   forward,
 }) => {
   const dispatch = useDispatch();
@@ -79,7 +78,7 @@ const GameCard = ({
       <img src={image} className="GameCard__image" />
       <button
         onClick={() => {
-          dispatch(selectGameboard("ad2222"));
+          dispatch(selectGameboard(gameboard));
           history.push("./game");
         }}
       >
