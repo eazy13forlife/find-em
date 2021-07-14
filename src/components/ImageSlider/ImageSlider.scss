@@ -1,3 +1,68 @@
+//the entire slider platform. if it takes up the whole width of screen, then  images will slide across full length of screen. It its like 50% of the screen, then images will slide into and out of this 50% platform, which also means that overflow needs to be hidden, so we only see images when they enter the platform.
 .ImageSlider {
+  width: 100%;
+  height: 60rem;
+  position: relative;
+}
+
+.Image {
+  position: absolute;
+  width: 50%;
+  height: 100%;
+  top: 0;
+  transform: translatex(-50%);
+  &--center {
+    left: 50%;
+    transition: left 800ms ease-in 200ms;
+  }
+  &--right {
+    left: 150%;
+    transition: left 800ms ease-in;
+  }
+  &--left {
+    left: -50%;
+    transition: left 800ms ease-in;
+  }
+}
+
+/*
+.ImageSlider {
+  width: 70%;
   background-color: red;
+  height: 60rem;
+  position: relative;
+  overflow: hidden;
+  margin: auto;
+}
+
+.Image {
+  position: absolute;
+  width: 70%;
+  height: 100%;
+  top: 0;
+  transform: translateX(-50%);
+  &--center {
+    left: 50%;
+    transition: left 800ms ease-in 200ms;
+  }
+  &--right {
+    left: 150%;
+    transition: left 800ms ease-in;
+  }
+  &--left {
+    left: -50%;
+    transition: left 800ms ease-in;
+  }
+}
+*/
+.next {
+  position: absolute;
+  left: 0%;
+  z-index: 5000;
+}
+
+.previous {
+  left: 20%;
+  position: absolute;
+  z-index: 6000;
 }

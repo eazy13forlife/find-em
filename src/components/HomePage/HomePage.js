@@ -26,39 +26,6 @@ import "./HomePage.scss";
 const HomePage = () => {
   const dispatch = useDispatch();
 
-  const [gameBoardIndex, setGameBoardIndex] = useState(null);
-  const [forward, setForward] = useState(true);
-
-  const incrementGameBoardIndex = () => {
-    if (!forward) {
-      setForward(true);
-    }
-    if (gameBoardIndex === null) {
-      setGameBoardIndex(1);
-    } else {
-      let incrementedIndex = gameBoardIndex + 1;
-      if (incrementedIndex > 5) {
-        incrementedIndex %= 6;
-      }
-      setGameBoardIndex(incrementedIndex);
-    }
-  };
-
-  const decrementGameBoardIndex = () => {
-    if (forward) {
-      setForward(false);
-    }
-    if (gameBoardIndex === null) {
-      setGameBoardIndex(5);
-    } else {
-      let decrementedIndex = gameBoardIndex - 1;
-      if (decrementedIndex < 0) {
-        const remainder = Math.abs(decrementedIndex) % 6;
-        decrementedIndex = 6 - remainder;
-      }
-      setGameBoardIndex(decrementedIndex);
-    }
-  };
   const allImages = [
     <GameCard
       image={ad2222Image}
@@ -66,7 +33,6 @@ const HomePage = () => {
       charactersList={ad2222CharactersList}
       mainColor="yellow"
       subColor="white"
-      startPosition="center"
     />,
 
     <GameCard
@@ -75,7 +41,6 @@ const HomePage = () => {
       charactersList={paranormalCharactersList}
       mainColor="secondary-blue"
       subColor="purple"
-      startPosition="right"
     />,
 
     <GameCard
@@ -84,7 +49,6 @@ const HomePage = () => {
       charactersList={paranormalCharactersList}
       mainColor="secondary-blue"
       subColor="purple"
-      startPosition="right"
     />,
 
     <GameCard
@@ -93,7 +57,6 @@ const HomePage = () => {
       charactersList={ad2222CharactersList}
       mainColor="yellow"
       subColor="white"
-      startPosition="right"
     />,
     <GameCard
       image={ad2222Image}
@@ -101,7 +64,6 @@ const HomePage = () => {
       charactersList={ad2222CharactersList}
       mainColor="yellow"
       subColor="white"
-      startPosition="right"
     />,
     <GameCard
       image={ad2222Image}
@@ -109,7 +71,6 @@ const HomePage = () => {
       charactersList={ad2222CharactersList}
       mainColor="yellow"
       subColor="white"
-      startPosition="right"
     />,
   ];
   useEffect(() => {
@@ -123,7 +84,7 @@ const HomePage = () => {
     <div className="HomePage">
       <header className="Header__logo">Find Em</header>
       <div className="HomePage__selection-containaer">
-        /*
+        {/*
         <GameCard
           image={ad2222Image}
           gameboard="ad2222"

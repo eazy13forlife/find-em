@@ -162,3 +162,34 @@ const HomePage = () => {
 };
 
 export default HomePage;
+
+.ImageSlider {
+  width: 100%;
+  height: 60rem;
+  position: relative;
+
+  /*
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  */
+}
+.Image {
+  position: absolute;
+  width: 50%;
+  height: 100%;
+  top: 0;
+  transform: translatex(-50%);
+  &--center {
+    left: 50%;
+    transition: left 800ms ease-in 200ms;
+  }
+  &--right {
+    left: 150%;
+    transition: left 800ms ease-in;
+  }
+  &--left {
+    left: -50%;
+    transition: left 800ms ease-in;
+  }
+}
