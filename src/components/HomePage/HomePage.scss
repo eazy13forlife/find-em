@@ -1,0 +1,10 @@
+.HomePage {
+  background-color: var(--homepage-primary-color);
+  min-height: 100vh;
+  color: white;
+  .Header__logo {
+    color: var(--homepage-secondary-color);
+    padding-top: 2rem;
+    margin-left: 5rem;
+  }
+}

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-
+import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import "./ImageSlider.scss";
 
 const getInitialClassNames = (array) => {
@@ -15,7 +15,7 @@ const getInitialClassNames = (array) => {
 };
 
 const ImageSlider = ({ array }) => {
-  const [currentImagesIndex, setCurrentImagesIndex] = useState(null);
+  const [currentImagesIndex, setCurrentImagesIndex] = useState(0);
 
   const [forward, setForward] = useState(true);
 
@@ -28,13 +28,9 @@ const ImageSlider = ({ array }) => {
     if (!forward) {
       setForward(true);
     }
-    if (currentImagesIndex === null) {
-      setCurrentImagesIndex(1);
-    } else {
-      let incrementedIndex = currentImagesIndex + 1;
-      if (incrementedIndex > array.length - 1) {
-        incrementedIndex %= array.length;
-      }
+
+    let incrementedIndex = currentImagesIndex + 1;
+    if (incrementedIndex < array.length) {
       setCurrentImagesIndex(incrementedIndex);
     }
   };
@@ -44,19 +40,14 @@ const ImageSlider = ({ array }) => {
     if (forward) {
       setForward(false);
     }
-    if (currentImagesIndex === null) {
-      setCurrentImagesIndex(array.length - 1);
-    } else {
-      let decrementedIndex = currentImagesIndex - 1;
-      if (decrementedIndex < 0) {
-        const remainder = Math.abs(decrementedIndex) % array.length;
-        decrementedIndex = array.length - remainder;
-      }
+
+    let decrementedIndex = currentImagesIndex - 1;
+    if (decrementedIndex >= 0) {
       setCurrentImagesIndex(decrementedIndex);
     }
   };
 
-  //useEffect for when our index changes. We get the new classNames for each index
+  //useEffect for when our index changes. We get the new classNames for each index, so the sliding transition will occur.
   useEffect(() => {
     const newIndexClassNames = { ...indexClassNames };
 
@@ -98,12 +89,10 @@ const ImageSlider = ({ array }) => {
       setIndexClassNames(newIndexClassNames);
     };
 
-    if (currentImagesIndex !== null) {
-      if (forward) {
-        updateClassNamesIfForward();
-      } else {
-        updateClassNamesIfPrevious();
-      }
+    if (forward) {
+      updateClassNamesIfForward();
+    } else {
+      updateClassNamesIfPrevious();
     }
   }, [currentImagesIndex]);
 
@@ -117,12 +106,40 @@ const ImageSlider = ({ array }) => {
 
   return (
     <div className="ImageSlider">
-      <button className="next" onClick={incrementCurrentImagesIndex}>
-        Go Next
+      <button
+        className={`ImageSlider__icon-button ${
+          currentImagesIndex !== array.length - 1
+            ? "ImageSlider__icon-button--active"
+            : null
+        } ImageSlider__icon-button--right-arrow`}
+        onClick={incrementCurrentImagesIndex}
+      >
+        <IoIosArrowForward
+          className={`ImageSlider__icon ${
+            currentImagesIndex === array.length - 1
+              ? "ImageSlider__icon--inactive"
+              : null
+          }`}
+        />
       </button>
-      <button className="previous" onClick={decrementcurrentImagesIndex}>
-        Go Previous
+
+      <button
+        className={`ImageSlider__icon-button ${
+          currentImagesIndex === 0 || currentImagesIndex == null
+            ? null
+            : "ImageSlider__icon-button--active"
+        } ImageSlider__icon-button--left-arrow`}
+        onClick={decrementcurrentImagesIndex}
+      >
+        <IoIosArrowBack
+          className={`ImageSlider__icon ${
+            currentImagesIndex === 0 || currentImagesIndex === null
+              ? "ImageSlider__icon--inactive"
+              : null
+          }`}
+        />
       </button>
+
       <div className="Images">{allItems}</div>
     </div>
   );

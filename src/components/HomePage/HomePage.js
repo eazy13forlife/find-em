@@ -42,36 +42,6 @@ const HomePage = () => {
       mainColor="secondary-blue"
       subColor="purple"
     />,
-
-    <GameCard
-      image={paranormalImage}
-      gameboard="paranormal"
-      charactersList={paranormalCharactersList}
-      mainColor="secondary-blue"
-      subColor="purple"
-    />,
-
-    <GameCard
-      image={ad2222Image}
-      gameboard="ad2222"
-      charactersList={ad2222CharactersList}
-      mainColor="yellow"
-      subColor="white"
-    />,
-    <GameCard
-      image={ad2222Image}
-      gameboard="ad2222"
-      charactersList={ad2222CharactersList}
-      mainColor="yellow"
-      subColor="white"
-    />,
-    <GameCard
-      image={ad2222Image}
-      gameboard="ad2222"
-      charactersList={ad2222CharactersList}
-      mainColor="yellow"
-      subColor="white"
-    />,
   ];
   useEffect(() => {
     dispatch(setMinutes(0));

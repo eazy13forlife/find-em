@@ -39,7 +39,7 @@ const GameCard = ({
       <img src={image} className="GameCard__image" />
       <div className="GameCard__button-container">
         <button
-          className="GameCard__button GameCard__button--ad2222"
+          className={`GameCard__button GameCard__button--${gameboard}`}
           onClick={() => {
             dispatch(selectGameboard(gameboard));
             history.push("./game");

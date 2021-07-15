@@ -3,6 +3,35 @@
   width: 100%;
   height: 60rem;
   position: relative;
+  &__icon-button {
+    position: absolute;
+    background-color: transparent;
+    border: none;
+    margin-top: 1rem;
+    z-index: 999;
+    &--active {
+      &:active {
+        margin-top: 2rem;
+      }
+    }
+    &--left-arrow {
+      top: 50%;
+      left: 20%;
+      transform: translateX(-55%);
+    }
+    &--right-arrow {
+      top: 50%;
+      left: 80%;
+      transform: translateX(-50%);
+    }
+  }
+  &__icon {
+    font-size: 4rem;
+    color: var(--homepage-secondary-color);
+    &--inactive {
+      filter: grayscale(100%) brightness(60%);
+    }
+  }
 }
 
 .Image {
@@ -13,15 +42,15 @@
   transform: translatex(-50%);
   &--center {
     left: 50%;
-    transition: left 800ms ease-in 200ms;
+    transition: left 600ms ease-in 100ms;
   }
   &--right {
     left: 150%;
-    transition: left 800ms ease-in;
+    transition: left 600ms ease-in;
   }
   &--left {
     left: -50%;
-    transition: left 800ms ease-in;
+    transition: left 600ms ease-in;
   }
 }
 
@@ -55,14 +84,60 @@
   }
 }
 */
-.next {
-  position: absolute;
-  left: 0%;
-  z-index: 5000;
+
+/*
+.ImageSlider {
+  width: 100%;
+  height: 60rem;
+  position: relative;
+  &__icon-button {
+    position: absolute;
+    background-color: transparent;
+    border: none;
+    margin-top: 1rem;
+    z-index: 999;
+    &--active {
+      &:active {
+        margin-top: 2rem;
+      }
+    }
+    &:active {
+      margin-top: 2rem;
+    }
+    &--left-arrow {
+      top: 50%;
+      left: 20%;
+      transform: translateX(-55%);
+    }
+    &--right-arrow {
+      top: 50%;
+      left: 80%;
+      transform: translateX(-50%);
+    }
+  }
+  &__icon {
+    font-size: 4rem;
+    color: var(--homepage-secondary-color);
+  }
 }
 
-.previous {
-  left: 20%;
+.Image {
   position: absolute;
-  z-index: 6000;
+  width: 50%;
+  height: 100%;
+  top: 0;
+  transform: translatex(-50%);
+  &--center {
+    left: 50%;
+    transition: left 600ms ease-in 100ms;
+  }
+  &--right {
+    left: 150%;
+    transition: left 600ms ease-in;
+  }
+  &--left {
+    left: -50%;
+    transition: left 600ms ease-in;
+  }
 }
+*/
