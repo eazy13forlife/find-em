@@ -128,7 +128,6 @@ const App = () => {
 
   const renderGame = () => {
     if (gameboardSelected === "ad2222") {
-      console.log("sasdfaadfadfasdf");
       return (
         <Game
           charactersList={ad2222CharactersList}

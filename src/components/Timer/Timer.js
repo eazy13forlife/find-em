@@ -1,4 +1,5 @@
-import Reac, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
+import { createSelector } from "reselect";
 import { useDispatch, useSelector } from "react-redux";
 
 import {
@@ -10,32 +11,61 @@ import {
 } from "../../actions/";
 import "./Timer.scss";
 
-const Timer = () => {
+const getNumberCharacters = createSelector(
+  (state, gameboard) => state.gameplay[gameboard].characters,
+  (characters) => {
+    return Object.keys(characters).length;
+  }
+);
+
+const Timer = ({ gameboard }) => {
   const dispatch = useDispatch();
+
+  const [stopTimer, setStopTimer] = useState(false);
+
   const timer = useSelector((state) => {
     return state.timer;
   });
+  const gameboardSelected = useSelector((state) => {
+    return state.gameboardSelected;
+  });
+
+  const numberIdentified = useSelector((state) => {
+    return state.gameplay[gameboardSelected].numberIdentified;
+  });
+
+  const numberCharacters = useSelector((state) => {
+    return getNumberCharacters(state, gameboard);
+  });
 
   useEffect(() => {
-    const timerId = setTimeout(() => {
-      if (timer.seconds === 59) {
-        dispatch(setSeconds(0));
-        if (timer.minutes === 59) {
-          dispatch(setMinutes(0));
-          dispatch(incrementHours());
+    let timerId;
+    if (!stopTimer) {
+      timerId = setTimeout(() => {
+        if (timer.seconds === 59) {
+          dispatch(setSeconds(0));
+          if (timer.minutes === 59) {
+            dispatch(setMinutes(0));
+            dispatch(incrementHours());
+          } else {
+            dispatch(incrementMinutes());
+          }
         } else {
-          dispatch(incrementMinutes());
+          dispatch(incrementSeconds());
         }
-      } else {
-        dispatch(incrementSeconds());
-      }
-    }, 1000);
+      }, 1000);
+    }
 
     return () => {
       clearTimeout(timerId);
     };
   }, [timer.seconds]);
 
+  useEffect(() => {
+    if (numberIdentified === numberCharacters) {
+      setStopTimer(true);
+    }
+  }, [numberIdentified]);
   /*
   useEffect(() => {
     setTimeout(() => {

@@ -1,10 +1,40 @@
+@import "../../styles/abstracts/_mixins.scss";
 .HomePage {
   background-color: var(--homepage-primary-color);
   min-height: 100vh;
   color: white;
+  position: relative;
+  overflow: hidden;
+  padding-bottom: 9rem;
+  &__header {
+    display: flex;
+    align-items: center;
+    @include respondMax(850px) {
+      justify-content: space-between;
+    }
+    @include respondMax(600px) {
+      display: block;
+    }
+  }
   .Header__logo {
     color: var(--homepage-secondary-color);
     padding-top: 2rem;
     margin-left: 5rem;
+  }
+  &__text {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    @include respondMax(850px) {
+      position: static;
+      left: 0;
+    }
+    @include respondMax(600px) {
+      display: block;
+      transform: none;
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+      text-align: center;
+    }
   }
 }

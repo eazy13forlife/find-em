@@ -7,8 +7,8 @@ import Timer from "../Timer/Timer.js";
 import "./Header.scss";
 
 const Header = ({ charactersList, theme }) => {
-  console.log("buddy");
   const dispatch = useDispatch();
+
   // get all my characters for the gameboard we are currently on
   const allCharacters = useSelector((state) => {
     return state.gameplay[theme].characters;
@@ -21,7 +21,7 @@ const Header = ({ charactersList, theme }) => {
 
     return (
       <figure
-        className={`Header__image-container Header__image-container--${theme}`}
+        className={`Header__image-container Header__image-container--${theme} Header__image-container`}
         key={index}
       >
         <img
@@ -53,7 +53,7 @@ const Header = ({ charactersList, theme }) => {
       >
         Find Em
       </h1>
-      <Timer />
+      <Timer gameboard={theme} />
       <div className="Header__character-images">{images}</div>
     </header>
   );

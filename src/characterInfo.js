@@ -79,6 +79,4 @@ Object.values(paranormalCharacters).forEach((object) => {
   paranormalCharactersList.push(object);
 });
 
-console.log(paranormalCharactersList);
-
 export { ad2222CharactersList, paranormalCharactersList };

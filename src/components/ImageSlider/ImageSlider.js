@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
+import { debounceLeading, newDebounced } from "../../helperFunctions.js";
 import "./ImageSlider.scss";
 
 const getInitialClassNames = (array) => {
@@ -25,6 +26,7 @@ const ImageSlider = ({ array }) => {
 
   //function for when we click next and increment the index. Return value is our new index.
   const incrementCurrentImagesIndex = () => {
+    console.log("funciton");
     if (!forward) {
       setForward(true);
     }
@@ -33,6 +35,7 @@ const ImageSlider = ({ array }) => {
     if (incrementedIndex < array.length) {
       setCurrentImagesIndex(incrementedIndex);
     }
+    console.log(incrementedIndex);
   };
 
   //function for when we click previous and decrement the index. return value is our new index.
@@ -46,6 +49,12 @@ const ImageSlider = ({ array }) => {
       setCurrentImagesIndex(decrementedIndex);
     }
   };
+
+  const incrementCurrentImagesIndexDebounced = useMemo(() => {
+    return debounceLeading(incrementCurrentImagesIndex, 800);
+  }, []);
+
+  console.log(incrementCurrentImagesIndexDebounced);
 
   //useEffect for when our index changes. We get the new classNames for each index, so the sliding transition will occur.
   useEffect(() => {

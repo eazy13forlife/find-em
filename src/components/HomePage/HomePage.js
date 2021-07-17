@@ -42,6 +42,81 @@ const HomePage = () => {
       mainColor="secondary-blue"
       subColor="purple"
     />,
+    <GameCard
+      image={ad2222Image}
+      gameboard="ad2222"
+      charactersList={ad2222CharactersList}
+      mainColor="yellow"
+      subColor="white"
+    />,
+
+    <GameCard
+      image={paranormalImage}
+      gameboard="paranormal"
+      charactersList={paranormalCharactersList}
+      mainColor="secondary-blue"
+      subColor="purple"
+    />,
+    <GameCard
+      image={ad2222Image}
+      gameboard="ad2222"
+      charactersList={ad2222CharactersList}
+      mainColor="yellow"
+      subColor="white"
+    />,
+
+    <GameCard
+      image={paranormalImage}
+      gameboard="paranormal"
+      charactersList={paranormalCharactersList}
+      mainColor="secondary-blue"
+      subColor="purple"
+    />,
+    <GameCard
+      image={ad2222Image}
+      gameboard="ad2222"
+      charactersList={ad2222CharactersList}
+      mainColor="yellow"
+      subColor="white"
+    />,
+
+    <GameCard
+      image={paranormalImage}
+      gameboard="paranormal"
+      charactersList={paranormalCharactersList}
+      mainColor="secondary-blue"
+      subColor="purple"
+    />,
+    <GameCard
+      image={ad2222Image}
+      gameboard="ad2222"
+      charactersList={ad2222CharactersList}
+      mainColor="yellow"
+      subColor="white"
+    />,
+
+    <GameCard
+      image={paranormalImage}
+      gameboard="paranormal"
+      charactersList={paranormalCharactersList}
+      mainColor="secondary-blue"
+      subColor="purple"
+    />,
+    <GameCard
+      image={ad2222Image}
+      gameboard="ad2222"
+      charactersList={ad2222CharactersList}
+      mainColor="yellow"
+      subColor="white"
+    />,
+
+    <GameCard
+      image={paranormalImage}
+      gameboard="paranormal"
+      charactersList={paranormalCharactersList}
+      mainColor="secondary-blue"
+      subColor="purple"
+    />,
   ];
   useEffect(() => {
     dispatch(setMinutes(0));
@@ -52,106 +127,13 @@ const HomePage = () => {
 
   return (
     <div className="HomePage">
-      <header className="Header__logo">Find Em</header>
-      <div className="HomePage__selection-containaer">
-        {/*
-        <GameCard
-          image={ad2222Image}
-          gameboard="ad2222"
-          charactersList={ad2222CharactersList}
-          mainColor="yellow"
-          subColor="white"
-          startPosition="center"
-          gameBoardIndex={gameBoardIndex}
-          index={0}
-          forward={forward}
-        />
-        <GameCard
-          image={paranormalImage}
-          gameboard="paranormal"
-          charactersList={paranormalCharactersList}
-          mainColor="secondary-blue"
-          subColor="purple"
-          startPosition="right"
-          gameBoardIndex={gameBoardIndex}
-          index={1}
-          forward={forward}
-        />
-        <GameCard
-          image={paranormalImage}
-          gameboard="paranormal"
-          charactersList={paranormalCharactersList}
-          mainColor="secondary-blue"
-          subColor="purple"
-          startPosition="right"
-          gameBoardIndex={gameBoardIndex}
-          index={2}
-          forward={forward}
-        />
-        <GameCard
-          image={ad2222Image}
-          gameboard="ad2222"
-          charactersList={ad2222CharactersList}
-          mainColor="yellow"
-          subColor="white"
-          startPosition="right"
-          gameBoardIndex={gameBoardIndex}
-          index={3}
-          forward={forward}
-        />
-        <GameCard
-          image={ad2222Image}
-          gameboard="ad2222"
-          charactersList={ad2222CharactersList}
-          mainColor="yellow"
-          subColor="white"
-          startPosition="right"
-          gameBoardIndex={gameBoardIndex}
-          index={4}
-          forward={forward}
-        />
-        <GameCard
-          image={ad2222Image}
-          gameboard="ad2222"
-          charactersList={ad2222CharactersList}
-          mainColor="yellow"
-          subColor="white"
-          startPosition="right"
-          gameBoardIndex={gameBoardIndex}
-          index={5}
-          forward={forward}
-        />
-        <button className="next" onClick={incrementGameBoardIndex}>
-          Go Next
-        </button>
-        <button className="next" onClick={decrementGameBoardIndex}>
-          Go Previous
-        </button>
-        {/*
-        <div className="HomePage__game HomePage__game--ad2222">
-          <button
-            className="button"
-            onClick={() => {
-              dispatch(selectGameboard("ad2222"));
-              history.push("/game");
-            }}
-          >
-            Choose Ad2222
-          </button>
-        </div>
-      </div>
-      <div className="HomePage__game HomePage__game--paranormal">
-        <button
-          onClick={() => {
-            dispatch(selectGameboard("paranormal"));
-            history.push("/game");
-          }}
-        >
-          Choose Paranormal
-        </button>
-      </div>
-      **/}
-      </div>
+      <header className="HomePage__header">
+        <h1 className="Header__logo">Find Em</h1>
+        <p className="text--medium HomePage__text homepageSecondaryColor">
+          Select a gameboard
+        </p>
+      </header>
+
       <ImageSlider array={allImages} />
     </div>
   );

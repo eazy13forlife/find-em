@@ -23,6 +23,9 @@
 .purple {
   color: var(--purple);
 }
+.homepageSecondaryColor {
+  color: var(--homepage-secondary-color);
+}
 
 :root.green {
   --green: green;
@@ -42,4 +45,5 @@ body {
   font-size: 1.6rem;
   box-sizing: border-box;
   font-family: "Amatic SC";
+  position: relative;
 }

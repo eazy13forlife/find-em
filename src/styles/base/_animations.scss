@@ -8,30 +8,15 @@
   }
 }
 
-@keyframes slideToLeft {
+@keyframes fly-in {
   0% {
-    left: 50%;
+    visibility: hidden;
+    opacity: 0;
+    transform: scale(0);
   }
   100% {
-    left: -10%;
-    height: 900px;
-  }
-}
-
-@keyframes slideToCenter {
-  0% {
-    left: -10%;
-  }
-  100% {
-    left: 50%;
-  }
-}
-
-@keyframes slideToRight {
-  0% {
-    left: 50%;
-  }
-  100% {
-    left: 150%;
+    visibility: visible;
+    opacity: 1;
+    transform: scale(1);
   }
 }

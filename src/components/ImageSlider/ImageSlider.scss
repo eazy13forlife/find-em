@@ -1,3 +1,4 @@
+@import "../../styles/abstracts/_mixins.scss";
 //the entire slider platform. if it takes up the whole width of screen, then  images will slide across full length of screen. It its like 50% of the screen, then images will slide into and out of this 50% platform, which also means that overflow needs to be hidden, so we only see images when they enter the platform.
 .ImageSlider {
   width: 100%;
@@ -18,11 +19,19 @@
       top: 50%;
       left: 20%;
       transform: translateX(-55%);
+      @include respondMax(900px) {
+        left: 40%;
+        top: 102%;
+      }
     }
     &--right-arrow {
       top: 50%;
       left: 80%;
       transform: translateX(-50%);
+      @include respondMax(900px) {
+        left: 60%;
+        top: 102%;
+      }
     }
   }
   &__icon {
@@ -40,6 +49,9 @@
   height: 100%;
   top: 0;
   transform: translatex(-50%);
+  @include respondMax(900px) {
+    width: 80%;
+  }
   &--center {
     left: 50%;
     transition: left 600ms ease-in 100ms;

@@ -5,7 +5,6 @@ import { Transition } from "react-transition-group";
 import { selectGameboard } from "../../actions/";
 
 import history from "../../history.js";
-
 import "./GameCard.scss";
 const GameCard = ({
   image,
@@ -35,18 +34,15 @@ const GameCard = ({
   });
 
   return (
-    <div className={`GameCard GameCard--${gameboard}`}>
-      <img src={image} className="GameCard__image" />
-      <div className="GameCard__button-container">
-        <button
-          className={`GameCard__button GameCard__button--${gameboard}`}
-          onClick={() => {
-            dispatch(selectGameboard(gameboard));
-            history.push("./game");
-          }}
-        >
-          Start
-        </button>
+    <div
+      className={`GameCard GameCard--${gameboard}`}
+      onClick={() => {
+        dispatch(selectGameboard(gameboard));
+        history.push("./game");
+      }}
+    >
+      <div className="GameCard__image-container">
+        <img src={image} className="GameCard__image" />
       </div>
 
       <div className="GameCard__info">

@@ -1,0 +1,35 @@
+.WinModal {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.87);
+  z-index: 99999999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  &__content {
+    padding: 3rem;
+    border-radius: 2rem;
+    box-shadow: 0rem 1rem 2rem rgba(0, 0, 0, 0);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    animation: fly-in 600ms both;
+    &--ad2222 {
+      background-color: var(--yellow);
+      color: var(--blue-primary);
+    }
+    &--paranormal {
+      background-color: var(--green);
+      color: var(--secondary-blue);
+    }
+  }
+  &__text {
+    text-decoration: underline;
+    margin-top: 3rem;
+    cursor: pointer;
+  }
+}

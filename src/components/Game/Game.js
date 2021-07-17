@@ -1,11 +1,24 @@
-import React, { useRef, useEffect } from "react";
-import { useDispatch } from "react-redux";
+import React, { useRef, useEffect, useMemo } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { createSelector } from "reselect";
 
 import { provideGameboardDimensions } from "../../actions/";
 import Header from "../Header/Header.js";
 import Dropdown from "../Dropdown/Dropdown.js";
 import TargetBox from "../TargetBox/TargetBox.js";
+import WinModal from "../WinModal/WinModal.js";
 import "./Game.scss";
+
+const makeGetNumberCharacters = () => {
+  return createSelector(
+    (state, gameboard) => {
+      return state.gameplay[gameboard].characters;
+    },
+    (characters) => {
+      return Object.keys(characters).length;
+    }
+  );
+};
 
 const Game = ({
   charactersList,
@@ -20,10 +33,19 @@ const Game = ({
   onCharacterClick,
   displayRedBorder,
 }) => {
-  console.log("yiiiii");
   const imageRef = useRef();
 
+  const getNumberCharacters = useMemo(() => {
+    return makeGetNumberCharacters();
+  }, []);
+
   const dispatch = useDispatch();
+
+  const numberCharacters = useSelector((state) => {
+    return getNumberCharacters(state, gameboard);
+  });
+
+  console.log(numberCharacters);
 
   useEffect(() => {
     imageRef.current.addEventListener("load", () => {
@@ -52,11 +74,9 @@ const Game = ({
 
   return (
     <div className="Game">
-      {numberIdentified === 6 ? (
-        <p className="win">Yay</p>
-      ) : (
-        <p className="winl">boo</p>
-      )}
+      {numberIdentified === numberCharacters ? (
+        <WinModal theme={gameboard} />
+      ) : null}
       <Header charactersList={charactersList} theme={gameboard} />
       <TargetBox
         className={`TargetBox--${gameboard}`}
