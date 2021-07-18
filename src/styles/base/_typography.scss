@@ -1,11 +1,17 @@
 @import "../../styles/abstracts/_mixins.scss";
 .Header__logo {
-  font-size: 10rem;
+  font-size: 8rem;
   @include respondMax(1000px) {
     font-size: 7rem;
   }
+  @include respondMax(900px) {
+    font-size: 5rem;
+  }
   @include respondMax(500px) {
     font-size: 5rem;
+  }
+  @include respondMax(400px) {
+    font-size: 4rem;
   }
   &--ad2222 {
     color: var(--blue-primary);

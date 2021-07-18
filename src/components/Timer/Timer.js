@@ -95,34 +95,34 @@ const Timer = ({ gameboard }) => {
 */
   const renderSeconds = () => {
     if (timer.seconds < 10) {
-      return <p className="text text--large">{`0${timer.seconds}`}</p>;
+      return <p className="text text--medium">{`0${timer.seconds}`}</p>;
     } else {
-      return <p className="text text--large">{`${timer.seconds}`}</p>;
+      return <p className="text text--medium">{`${timer.seconds}`}</p>;
     }
   };
 
   const renderMinutes = () => {
     if (timer.minutes < 10) {
-      return <p className="text text--large">{`0${timer.minutes}`}</p>;
+      return <p className="text text--medium">{`0${timer.minutes}`}</p>;
     } else {
-      return <p className="text text--large">{`${timer.minutes}`}</p>;
+      return <p className="text text--medium">{`${timer.minutes}`}</p>;
     }
   };
   const renderHours = () => {
     if (timer.hours < 10) {
-      return <p className="text text--large">{`0${timer.hours}`}</p>;
+      return <p className="text text--medium">{`0${timer.hours}`}</p>;
     } else {
-      return <p className="text text--large">{`${timer.hours}`}</p>;
+      return <p className="text text--medium">{`${timer.hours}`}</p>;
     }
   };
 
   return (
     <div className="Timer">
-      <span className="text text--large">{renderHours()}</span>
-      <span className="text text--large"> :</span>
-      <span className="text text--large">{renderMinutes()}</span>
-      <span className="text text--large"> :</span>
-      <span className="text text--large">{renderSeconds()}</span>
+      <span className="text text--medium">{renderHours()}</span>
+      <span className="text text--medium"> :</span>
+      <span className="text text--medium">{renderMinutes()}</span>
+      <span className="text text--medium"> :</span>
+      <span className="text text--medium">{renderSeconds()}</span>
     </div>
   );
 };

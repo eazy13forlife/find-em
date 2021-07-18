@@ -1,8 +1,11 @@
+@import "../../styles/abstracts/_mixins.scss";
 .Dropdown {
   width: 15%;
   position: absolute;
   z-index: 1000;
-
+  @include respondMax(750px) {
+    width: auto;
+  }
   &__item {
     display: grid;
     grid-template-columns: 25% 1fr;
@@ -12,6 +15,11 @@
     border-radius: 1.3rem;
     padding-top: 0.5rem;
     cursor: pointer;
+    @include respondMax(750px) {
+      grid-template-columns: max-content;
+      padding: 0.5rem;
+      justify-items: center;
+    }
     &--ad2222 {
       background-color: var(--blue-primary);
       border-color: var(--yellow);
@@ -34,8 +42,14 @@
   }
   &__image {
     width: 75%;
+    @include respondMax(750px) {
+      display: none;
+    }
   }
   .text {
     padding-right: 1rem;
+    @include respondMax(750px) {
+      padding-right: 0rem;
+    }
   }
 }

@@ -46,7 +46,7 @@ const Header = ({ charactersList, theme }) => {
       }}
     >
       <h1
-        className={`Header__logo Header__logo--${theme}`}
+        className={`Header__header-logo Header__logo Header__logo--${theme}`}
         onClick={() => {
           history.push("/");
         }}

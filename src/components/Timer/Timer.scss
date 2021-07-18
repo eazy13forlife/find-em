@@ -1,5 +1,12 @@
+@import "../../styles/abstracts/_mixins.scss";
 .Timer {
   display: flex;
   padding: 2rem;
-  width: 20rem;
+  width: 10rem;
+  grid-column: 4/6;
+  grid-row: 1/2;
+  align-self: end;
+  @include respondMax(750px) {
+    grid-column: 1/4;
+  }
 }

@@ -18,6 +18,7 @@ const Dropdown = ({ list, theme, onSelection }) => {
     }
     const exceedsLeftRange = x / gameboardWidth >= 0.75;
     const exceedsTopRange = y / gameboardHeight >= 0.88;
+    console.log(exceedsTopRange);
 
     const normalTop = `calc(${y}px + 4rem)`;
     const normalLeft = `calc(${x}px)`;
@@ -45,6 +46,7 @@ const Dropdown = ({ list, theme, onSelection }) => {
           left: adjustedLeft,
         };
       } else {
+        console.log(adjustedTop);
         return {
           top: adjustedTop,
           left: normalLeft,

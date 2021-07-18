@@ -17,6 +17,7 @@ import {
   identifyCharacter,
   provideSelectionResult,
   selectGameboard,
+  provideGameboardDimensions,
 } from "../../actions/";
 
 //create a memoized selector for all the states i need, so i dont have to list one by one. our last argument will only be called if one the previous arguments is different. Otherwise the same object will be returned to us. if we don't do it like this, anytime we return an object from useSelector,our whole component will re-render even if nothing changed
@@ -119,7 +120,7 @@ const App = () => {
   const displayRedBorder = (name) => {
     if (charactersIdentified.includes(name)) {
       return {
-        border: "5px solid red",
+        border: "0.2rem solid red",
       };
     } else {
       return null;
