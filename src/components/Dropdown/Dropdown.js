@@ -19,22 +19,22 @@ const Dropdown = ({ list, theme, onSelection }) => {
     const exceedsLeftRange = x / gameboardWidth >= 0.75;
     const exceedsTopRange = y / gameboardHeight >= 0.88;
     console.log(exceedsTopRange);
-
-    const normalTop = `calc(${y}px + 4rem)`;
-    const normalLeft = `calc(${x}px)`;
-    const adjustedTop = `calc(${y}px - 24vw)`;
-    const adjustedLeft = `calc(${x}px - 18vw)`;
+    console.log(exceedsLeftRange);
+    const normalTop = { top: "0%" };
+    const normalLeft = { left: "0%" };
+    const adjustedTop = { bottom: "100%" };
+    const adjustedLeft = { right: "100%" };
 
     if (exceedsLeftRange) {
       if (exceedsTopRange) {
         return {
-          top: adjustedTop,
-          left: adjustedLeft,
+          ...adjustedLeft,
+          ...adjustedTop,
         };
       } else {
         return {
-          top: normalTop,
-          left: adjustedLeft,
+          ...adjustedLeft,
+          ...normalTop,
         };
       }
     }
@@ -42,21 +42,20 @@ const Dropdown = ({ list, theme, onSelection }) => {
     if (exceedsTopRange) {
       if (exceedsLeftRange) {
         return {
-          top: adjustedTop,
-          left: adjustedLeft,
+          ...adjustedLeft,
+          ...adjustedTop,
         };
       } else {
-        console.log(adjustedTop);
         return {
-          top: adjustedTop,
-          left: normalLeft,
+          ...normalLeft,
+          ...adjustedTop,
         };
       }
     }
 
     return {
-      top: normalTop,
-      left: normalLeft,
+      ...normalTop,
+      ...normalLeft,
     };
   };
 

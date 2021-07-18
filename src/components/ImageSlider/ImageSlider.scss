@@ -20,8 +20,8 @@
       left: 20%;
       transform: translateX(-55%);
       @include respondMax(900px) {
-        left: 40%;
-        top: 102%;
+        left: 6%;
+        top: 50%;
       }
     }
     &--right-arrow {
@@ -29,8 +29,8 @@
       left: 80%;
       transform: translateX(-50%);
       @include respondMax(900px) {
-        left: 60%;
-        top: 102%;
+        left: 94%;
+        top: 50%;
       }
     }
   }

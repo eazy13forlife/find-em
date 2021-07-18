@@ -81,12 +81,13 @@ const Game = ({
       <TargetBox
         className={`TargetBox--${gameboard}`}
         position={clickCoordinates}
-      />
-      <Dropdown
-        list={charactersList}
-        theme={gameboard}
-        onSelection={onDropdownSelection}
-      />
+      >
+        <Dropdown
+          list={charactersList}
+          theme={gameboard}
+          onSelection={onDropdownSelection}
+        />
+      </TargetBox>
       <div className="Game__gameboard" onClick={onClick}>
         {renderSelectionResults()}
         <img

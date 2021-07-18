@@ -21,13 +21,13 @@ const Header = ({ charactersList, theme }) => {
 
     return (
       <figure
-        className={`Header__image-container Header__image-container--${theme} Header__image-container`}
+        className={`Header__image-container Header__image-container--${theme}`}
         key={index}
       >
         <img
           src={character.image}
           alt={character.name}
-          className={`Header__image Header__image--${theme} Header__image--${name} ${
+          className={`Header__image   ${
             identified ? null : "Header__image--hidden"
           }`}
         />
@@ -54,7 +54,11 @@ const Header = ({ charactersList, theme }) => {
         Find Em
       </h1>
       <Timer gameboard={theme} />
-      <div className="Header__character-images">{images}</div>
+      <div
+        className={`Header__character-images Header__character-images--${theme}`}
+      >
+        {images}
+      </div>
     </header>
   );
 };

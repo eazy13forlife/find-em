@@ -63,6 +63,14 @@
       grid-template-columns: repeat(3, 1fr);
       margin-top: 0rem;
     }
+    &--paranormal {
+      @include respondMax(700px) {
+        margin-top: 10rem;
+      }
+      @include respondMax(500px) {
+        margin-top: 0rem;
+      }
+    }
   }
   &__image-container {
     width: 30%;
@@ -87,9 +95,32 @@
     }
 
     &--paranormal {
-      width: 140px;
-      @include respondMax(950px) {
-        margin-left: -9rem;
+      @include respondMax(500px) {
+        margin-left: 0rem;
+      }
+      &:not(:first-child) {
+        margin-left: -8rem;
+        @include respondMax(1000px) {
+          margin-left: -7rem;
+        }
+        @include respondMax(800px) {
+          margin-left: -6rem;
+        }
+        @include respondMax(600px) {
+          margin-left: -4.5rem;
+        }
+        @include respondMax(500px) {
+          margin-left: 0rem;
+        }
+      }
+      @include respondMax(1000px) {
+        width: 25%;
+      }
+      @include respondMax(800px) {
+        width: 25%;
+      }
+      @include respondMax(500px) {
+        width: 100%;
       }
     }
   }
@@ -108,21 +139,6 @@
     }
     &--hidden {
       filter: contrast(0.5) brightness(0.5);
-    }
-    &--paranormal {
-      width: 120%;
-    }
-    &--It {
-      transform: translateX(-2rem) translateY(2rem);
-      width: 180%;
-    }
-    &--Demagorgon {
-      transform: translateY(4rem) translateX(4rem);
-    }
-    &--Tricycle {
-      width: 200%;
-      z-index: 80000;
-      position: absolute;
     }
   }
   &__image-name {

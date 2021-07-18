@@ -3,7 +3,7 @@ import Dropdown from "../Dropdown/Dropdown.js";
 
 import "./TargetBox.scss";
 
-const TargetBox = ({ className, position }) => {
+const TargetBox = ({ className, position, children }) => {
   return (
     <div
       className={`TargetBox ${className}`}
@@ -12,7 +12,9 @@ const TargetBox = ({ className, position }) => {
           ? { top: `${position.y}px`, left: `${position.x}px` }
           : { display: "none" }
       }
-    ></div>
+    >
+      {children}
+    </div>
   );
 };
 

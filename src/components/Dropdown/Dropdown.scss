@@ -1,6 +1,6 @@
 @import "../../styles/abstracts/_mixins.scss";
 .Dropdown {
-  width: 15%;
+  width: 20rem;
   position: absolute;
   z-index: 1000;
   @include respondMax(750px) {
@@ -16,7 +16,7 @@
     padding-top: 0.5rem;
     cursor: pointer;
     @include respondMax(750px) {
-      grid-template-columns: max-content;
+      grid-template-columns: min-content;
       padding: 0.5rem;
       justify-items: center;
     }
