@@ -34,18 +34,29 @@ const getStates = createSelector(
     gameboardSelected,
     gameplay
   ) => {
+    //just in case no gameboard is selected, so for example, a user navigates to "/game"  right away without selecting it frist
+    let numberIdentified;
+    let charactersIdentified;
+    if (!gameboardSelected) {
+      numberIdentified = null;
+      charactersIdentified = null;
+    } else {
+      numberIdentified = gameplay[gameboardSelected].numberIdentified;
+      charactersIdentified = gameplay[gameboardSelected].identified;
+    }
+
     return {
       selectionResult,
       clickCoordinates,
       characterClicked,
       gameboardSelected,
-      numberIdentified: gameplay[gameboardSelected].numberIdentified,
-      charactersIdentified: gameplay[gameboardSelected].identified,
+      numberIdentified,
+      charactersIdentified,
     };
   }
 );
 
-const App = ({ gameboard }) => {
+const App = () => {
   const dispatch = useDispatch();
 
   const {
@@ -156,6 +167,8 @@ const App = ({ gameboard }) => {
           displayRedBorder={displayRedBorder}
         />
       );
+    } else {
+      return <p>Error</p>;
     }
   };
   return renderGame();
