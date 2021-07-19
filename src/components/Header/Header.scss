@@ -52,7 +52,6 @@
     @include respondMax(500px) {
       margin-top: -1.5rem;
       margin-right: 0rem;
-      display: block;
       grid-column: 2/3;
       display: grid;
       grid-template-columns: repeat(3, 60px);
