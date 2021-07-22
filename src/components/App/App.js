@@ -5,7 +5,7 @@ import history from "../../history.js";
 import HomePage from "../HomePage/HomePage.js";
 import GameLoader from "../GameLoader/GameLoader.js";
 
-const App2 = () => {
+const App = () => {
   return (
     <Router history={history}>
       <Route path="/" exact component={HomePage} />
@@ -14,4 +14,4 @@ const App2 = () => {
   );
 };
 
-export default App2;
+export default App;

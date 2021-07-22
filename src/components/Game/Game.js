@@ -58,6 +58,17 @@ const Game = ({
     });
   }, []);
 
+  useEffect(() => {
+    imageRef.current.addEventListener("load", () => {
+      dispatch(
+        provideGameboardDimensions(
+          imageRef.current.clientWidth,
+          imageRef.current.clientHeight
+        )
+      );
+    });
+  }, []);
+
   const renderedCharacters = charactersList.map((character, index) => {
     const className = character.name.toLowerCase().split(" ").join("-");
     return (

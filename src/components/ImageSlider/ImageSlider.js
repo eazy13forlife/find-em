@@ -16,6 +16,7 @@ const getInitialClassNames = (array) => {
 };
 
 const ImageSlider = ({ array }) => {
+  console.log("fafadasdfasdfasdfasdfsdfafasdfa");
   const [currentImagesIndex, setCurrentImagesIndex] = useState(0);
 
   const [forward, setForward] = useState(true);
@@ -25,17 +26,14 @@ const ImageSlider = ({ array }) => {
   );
 
   //function for when we click next and increment the index. Return value is our new index.
-  const incrementCurrentImagesIndex = () => {
-    console.log("funciton");
+  const incrementCurrentImagesIndex = (forward, currentImagesIndex) => {
     if (!forward) {
       setForward(true);
     }
-
     let incrementedIndex = currentImagesIndex + 1;
     if (incrementedIndex < array.length) {
       setCurrentImagesIndex(incrementedIndex);
     }
-    console.log(incrementedIndex);
   };
 
   //function for when we click previous and decrement the index. return value is our new index.
@@ -53,8 +51,6 @@ const ImageSlider = ({ array }) => {
   const incrementCurrentImagesIndexDebounced = useMemo(() => {
     return debounceLeading(incrementCurrentImagesIndex, 800);
   }, []);
-
-  console.log(incrementCurrentImagesIndexDebounced);
 
   //useEffect for when our index changes. We get the new classNames for each index, so the sliding transition will occur.
   useEffect(() => {
@@ -121,7 +117,9 @@ const ImageSlider = ({ array }) => {
             ? "ImageSlider__icon-button--active"
             : null
         } ImageSlider__icon-button--right-arrow`}
-        onClick={incrementCurrentImagesIndex}
+        onClick={() => {
+          incrementCurrentImagesIndexDebounced(forward, currentImagesIndex);
+        }}
       >
         <IoIosArrowForward
           className={`ImageSlider__icon ${
