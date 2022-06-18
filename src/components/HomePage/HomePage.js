@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import React, { useEffect } from "react";
+import { useDispatch } from "react-redux";
 
 import GameCard from "../GameCard/GameCard.js";
 import ad2222Image from "../../images/ad2222.jpg";
@@ -12,14 +12,11 @@ import {
 import ImageSlider from "../ImageSlider/ImageSlider.js";
 
 import {
-  selectGameboard,
   setMinutes,
   setSeconds,
   updateClickCoordinates,
   provideSelectionResult,
 } from "../../actions/";
-
-import history from "../../history.js";
 
 import "./HomePage.scss";
 
@@ -28,6 +25,7 @@ const HomePage = () => {
 
   const allImages = [
     <GameCard
+      key={1}
       image={ad2222Image}
       gameboard="ad2222"
       charactersList={ad2222CharactersList}
@@ -36,51 +34,7 @@ const HomePage = () => {
     />,
 
     <GameCard
-      image={paranormalImage}
-      gameboard="paranormal"
-      charactersList={paranormalCharactersList}
-      mainColor="secondary-blue"
-      subColor="purple"
-    />,
-    <GameCard
-      image={ad2222Image}
-      gameboard="ad2222"
-      charactersList={ad2222CharactersList}
-      mainColor="yellow"
-      subColor="white"
-    />,
-
-    <GameCard
-      image={paranormalImage}
-      gameboard="paranormal"
-      charactersList={paranormalCharactersList}
-      mainColor="secondary-blue"
-      subColor="purple"
-    />,
-    <GameCard
-      image={ad2222Image}
-      gameboard="ad2222"
-      charactersList={ad2222CharactersList}
-      mainColor="yellow"
-      subColor="white"
-    />,
-
-    <GameCard
-      image={paranormalImage}
-      gameboard="paranormal"
-      charactersList={paranormalCharactersList}
-      mainColor="secondary-blue"
-      subColor="purple"
-    />,
-    <GameCard
-      image={ad2222Image}
-      gameboard="ad2222"
-      charactersList={ad2222CharactersList}
-      mainColor="yellow"
-      subColor="white"
-    />,
-
-    <GameCard
+      key={2}
       image={paranormalImage}
       gameboard="paranormal"
       charactersList={paranormalCharactersList}

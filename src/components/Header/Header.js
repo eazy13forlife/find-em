@@ -2,10 +2,8 @@ import React from "react";
 import history from "../../history.js";
 import { useSelector, useDispatch } from "react-redux";
 import { updateClickCoordinates } from "../../actions/";
-import { charactersList } from "../../characterInfo.js";
 import Timer from "../Timer/Timer.js";
 import "./Header.scss";
-
 const Header = ({ charactersList, theme }) => {
   const dispatch = useDispatch();
 

@@ -1,5 +1,4 @@
 import React from "react";
-import Dropdown from "../Dropdown/Dropdown.js";
 
 import "./TargetBox.scss";
 

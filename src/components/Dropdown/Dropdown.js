@@ -1,5 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
+import PropTypes from "prop-types";
 
 import "./Dropdown.scss";
 
@@ -98,4 +99,9 @@ const Dropdown = ({ list, theme, onSelection }) => {
   );
 };
 
+Dropdown.propTypes = {
+  list: PropTypes.array.isRequired,
+  theme: PropTypes.string.isRequired,
+  onSelection: PropTypes.func,
+};
 export default Dropdown;

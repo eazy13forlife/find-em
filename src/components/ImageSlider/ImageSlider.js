@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useMemo } from "react";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
-import { debounceLeading, newDebounced } from "../../helperFunctions.js";
+import { debounceLeading } from "../../helperFunctions.js";
 import "./ImageSlider.scss";
 
 const getInitialClassNames = (array) => {
