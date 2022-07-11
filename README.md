@@ -16,7 +16,7 @@ https://find-em-pi.vercel.app/
 
 ## Notable Features
 * Fully responsive
-* Users' time is recorded to save best time.
+* Users' time is recorded to save best time
 * Real-time character verification
 
 
